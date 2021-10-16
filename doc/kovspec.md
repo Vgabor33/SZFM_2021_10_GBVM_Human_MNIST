@@ -5,12 +5,12 @@
 ## 1. Jelenlegi helyzet
 
 
-
+Történet arról, hogy kinek és miért is kell ez a rendszer.
 
 
 ## 2. Vágyott rendszer
 
-
+Milyen rendszert szeretne a cég.
 
 
 
@@ -29,7 +29,7 @@
 ## 5. A rendszerre vonatkozó szabályok
 
 
-
+Milyen eszközökkel, szabályok, illetve szabványok mentén készül a rendszer.
 
 
 
