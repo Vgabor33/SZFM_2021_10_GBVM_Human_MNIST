@@ -4,17 +4,27 @@
 
 ## 1. Jelenlegi helyzet
 
-A mai világban a kézírás akár betűkben, de szintúgy számokban kihívást tud okozni értelmezés közben az embereknek. 
-Manapság a dokumentációk, továbbá kérvények már nem kézzel szokás írni, sokszor ezt nem mindenki engedheti meg magának, 
-de tartalmazhatnak olyan részeket így is, mint például dátum, személyes okmányok azonosítóinak feltüntetése, amiket kéz írással lehet csak feltüntetni. 
-Az értelmezésükben legtöbbször nem biztos ugyan arra ennek feldolgozója, mint aki kitöltötte, és nem mindig adja a lehetőség ilyenkor tisztázásra. 
-Ilyesmi esetekre pedig nincsen olyan eszköz ami erre felkészítené az értelmezőt, a saját írástípusok ismerete alapján pedig nem képes megfejteni, aminek következménye lehet hogy a dokumentum érvénytelen, ezáltal újraírást igényel ami értékes időbe telik. 
+A mai világban a kézírás értelmezése akár betűknél, de szintúgy számoknál is kihívást tud okozni az embereknek.
+Dokumentációkat, kérvényeket már nem kézzel szokás írni, sokszor ezt nem mindenki engedheti meg magának, de azok tartalmazhatnak olyan részeket is, mint például dátum vagy személyes okmányok azonosítói, melyeket kézírással lehet csak feltüntetni.
+Az ily módon írt információk feldolgozása során olyan, írásképből adódó félreértések keletkezhetnek, melyek tisztázásda nehézkes.
+Ilyen esetekben nincsen olyan eszköz, ami segítené az olvasót, valamint az a szerző kézírásához való hozzáférés nélkül lehet, nem képes az írás helyes értelmezésére.
+Ennek következménye lehet, hogy a dokumentum érvénytelen, ezáltal újraírást igényel, ami értékes időbe telik. 
 
-A Magyar Kormány által szeretnénk egy olyan eszközt/statisztikát nyújtani munkatársainknak, és a kormány által támogatott intézményeknek, ami segítségével a különbözően írott számokat tényleges értékének értelmezését tudják gyakorolni, továbbá önkéntes alapon felmérhetjük az ország különböző területén, ki minek látja a számjegyeket.
+Szeretnénk egy olyan eszközt/statisztikát nyújtani munkatársainknak és a általunk támogatott intézményeknek, ami segítségével a különbözően módon írt számok tényleges értékének értelmezését tudják gyakorolni, továbbá önkéntes alapon felmérhetjük az ország különböző területén az értelmezési tendenciákat.
 
 ## 2. Vágyott rendszer
 
-A projekt célja legyen egy olyan kiértékelhető interaktív feladat, ami később olyan adatokkal szolgál amit statisztikailag fel lehet majd dolgozni. A regisztráció legyen választható, tartalmazzon valamilyen helység meghatározást hogy honnan tölti ki (pl.: megye). Az regisztrációs felület után, legyen ismertető, hogy mi a felhasználónak a feladata, ez tanulási mintákat is tartalmazzon. A mérés már tanulási mintákból is elkezdődhet, a teszt adatokból mindenképpen legyen. A tesztben megjelenő képek legyenek súlyozottan randomizálva, hogy a nehésség fokozatosan növekedjen. A weboldal megjelenése legyen kompatibilis, mobiltelefon, akár tablet képméreteivel, tehát rendelkezzen reszponzív felülettel. A tanulói és teszt képek ne foglaljanak túl sok tárhelyet. A weboldal kezelhetősége megjelenése legyen egyszerű  és lényegre törő, hogy minél több ember tudja használni. A teszt folyamatot bármikor meg lehessen szakítani, és újra lehessen folytatni. Az teszt eredményt felhasználó döntse el menteni szeretné-e. A teszt képek egymás után jövetele legyen gyors.
+A projekt egyik célja egy adat-bázis kialakítása, melyből statisztikai kimutatásokat lehet később készíteni.
+A másik cél egy alkalmazás fejlesztése, mellyel gyakorolni tudják munkatársaink az írott számok felismerését.
+A regisztráció legyen választható, tartalmazzon valamilyen helység meghatározást, hogy honnan tölti ki (pl.: megye).
+Az regisztrációs felület után legyen ismertető, hogy mi a felhasználónak a feladata, ez tanulási mintákat is tartalmazzon.
+A mérés már tanulási mintákból is elkezdődhet, a teszt adatokból mindenképpen legyen.
+A tesztben megjelenő képek legyenek súlyozottan randomizálva, hogy a nehézség fokozatosan növekedjen.
+A weboldal megjelenése legyen kompatibilis, mobiltelefon, akár tablet képméreteivel, tehát rendelkezzen reszponzív felülettel.
+A tanulói és teszt képek ne foglaljanak túl sok tárhelyet.
+A weboldal kezelhetősége, megjelenése legyen egyszerű és lényegretörő, a széleskörű használhatóség érdekében.
+A teszt folyamatot bármikor meg lehessen szakítani, és újra lehessen folytatni.
+Az teszt eredményt felhasználó döntse el menteni szeretné-e. A teszt képek egymás után jövetele legyen gyors.
 
 ## 3. Jelenlegi üzleti folyamatok
 
@@ -58,15 +68,15 @@ Az adatokat egyszerűen meg tudja osztani az ügyféllel vagy szerződővel
 
 A weboldalt HTML nyelven kell megírni.
 
-A weboldhoz funkcionalitását JavaScriptnek és/vagy PHP-nek kell adnia.
+A weboldal kliens-oldali funkcionalitását JavaScriptnek kell adnia.
 
-A weboldal megjelenítését CSS stíluslappal kell formázni.
+A weboldal megjelenését CSS stíluslappal kell formázni.
 
 Adatok hosszútávú tárolására egy SQL szervert kell használni.
 
-A weboldal CSS és JavaScript részeit külön fileban kell megadni, nem lehetnek a HTML fileba ágyazva.
+A weboldal CSS és JavaScript részeit külön álloményban kell megadni, nem lehetnek a HTML-be ágyazva.
 
-A weboldalnak személyi számítógépről és okostelenfonrol is használhatónak kell lennie.
+A weboldalnak személyi számítógépről és okostelefonról is használhatónak kell lennie.
 
 A weboldalnak tudnia kell igazodni a megjelenítő eszköz felbontásához.
 
@@ -84,7 +94,7 @@ A weboldalnak tudnia kell igazodni a megjelenítő eszköz felbontásához.
 
 ## 7. Fogalomszótár
 
-HTML - Hyper Text Markup Language, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/HTML).
+HTML - Hypertext Markup Language, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/HTML).
 
 CSS - Cascading Style Sheets, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/CSS)
 
