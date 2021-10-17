@@ -81,6 +81,7 @@ A képen látható az első használat során kitöltendő menű.
 
 Ezen a képen egy az első használat során kitöltendő menűhöz egy kis navigációs segítség látható.
 
+Egy kis prototípus: [itt](https://vikt0r.eu/mnist/)
 
 
 
