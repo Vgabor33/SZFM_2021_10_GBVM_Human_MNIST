@@ -20,18 +20,40 @@ A projekt célja legyen egy olyan kiértékelhető interaktív feladat, ami kés
 
 ## 3. Jelenlegi üzleti folyamatok
 
-
-
-
-
+Jelenleg nem folytat a cég hasonló üzleti folyamatokat.
 
 
 ## 4. Igényelt üzleti folyamatok
-
-
-
-
-
+### 4.1. A teszt terjesztése
+A cég generál egy új elérhetőséget a tesztfelülethez =>  
+Az elérhetőséget megosztja a felhasználóval =>  
+A felhasználó felkeresi a felületet
+### 4.2. A tesztelés folyamata
+### 4.2.1. Új felhasználó regisztrációja
+Az alkalmazás megkéri a felhasználót a regisztrációra =>  
+A felhasználó regisztrál e-mail címmel és jelszóval =>  
+Az ezután elvégzett tesztek egy egyedi, nem lekövethető (ld. Adatkezelési Szabályzat) fiókazonosítóval kerülnek elküldésre
+### 4.2.2. Alkalmazás használata regisztráció nélkül
+Az alkalmazás megkéri a felhasználót a regisztrációra =>  
+A felhasználó átugorja a regisztrációs lépést =>  
+Az alkalmazás megoldja, hogy legalább az ugyanarról az eszközről/telepítésről érkező válaszok ugyanolyan azonosítóval rendelkezzenek
+### 4.2.2. Regisztrált felhasználó tesztelésének elkezdése
+Az alkalmazás képekkel prezentálja a felhasználót =>  
+A felhasználó a képeknek megfelelő bemenetet visz fel =>  
+Az alkalmazás elküldi a távoli szervernek a felhasználó válaszát és fiókazonosítóját
+### 4.2.3. Nem Regisztrált felhasználó tesztelésének elkezdése
+Az alkalmazás képekkel prezentálja a felhasználót =>  
+A felhasználó a képeknek megfelelő bemenetet visz fel =>  
+Az alkalmazás elküldi a távoli szervernek a felhasználó válaszát és telepítésazonosítóját
+### 4.2.4. Tesztelés szünetelése
+A felhasználó ideiglenesen szünetelteti a tesztelés folyamatát =>  
+Az alkalmazás ennek megfelelően kezeli a szünetet, valamilyen módon megjegyzi a teszt pillanatnyi állását
+### 4.2.5. Tesztelés folytatása
+A felhasználó egy szünet után folytatja a tesztet =>  
+Az alkalmazás könnyen és akadályok nélkül folytatja a képek prezentálását, mintha nem történt volna meg a szünet
+### 4.3. Adatok feldolgozása
+A cég a felmérés adatait egy szabványos formában bármikor ki tudja nyerni a szerverből =>  
+Az adatokat egyszerűen meg tudja osztani az ügyféllel vagy szerződővel
 
 ## 5. A rendszerre vonatkozó szabályok
 
