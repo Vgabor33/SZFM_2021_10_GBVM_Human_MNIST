@@ -35,10 +35,19 @@ A projekt célja legyen egy olyan kiértékelhető interaktív feladat, ami kés
 
 ## 5. A rendszerre vonatkozó szabályok
 
+A weboldalt HTML nyelven kell megírni.
 
+A weboldhoz funkcionalitását JavaScriptnek és/vagy PHP-nek kell adnia.
 
+A weboldal megjelenítését CSS stíluslappal kell formázni.
 
+Adatok hosszútávú tárolására egy SQL szervert kell használni.
 
+A weboldal CSS és JavaScript részeit külön fileban kell megadni, nem lehetnek a HTML fileba ágyazva.
+
+A weboldalnak személyi számítógépről és okostelenfonrol is használhatónak kell lennie.
+
+A weboldalnak tudnia kell igazodni a megjelenítő eszköz felbontásához.
 
 ## 6. Követelménylista
 
@@ -85,14 +94,19 @@ Ezen a képen egy az első használat során kitöltendő menűhöz egy kis navi
 Egy kis prototípus: [itt](https://vikt0r.eu/mnist/)
 
 
-
-
 ## 9. Forgatókönyvek
 
 
-A felhasználó hogyan tudja használni az app-ot.
-Milyen funkciót milyen lépéseken keresztül ér el (lépésenkénti leírás).
+### 9.1 Belépés
+Az webes alkalmazást kétféle képpen lehet megnyitni. 
+1. Amennyiben a felhasználó először használja meg kell adni az életkorát, az országot ahol él valamint a legmagasabb iskolai végzettségét. Miután ezeket megadta a "Tap to begin!" gombra nyomva használhatja az alkalmazást.
+2. Amennyiben már használta az alkalmazást és a sütik nem lettek törölve, a weboldal felismeri a felhasználót és nincs szükség adatok betöltésére.
 
+### 9.2 Az alkalmazás használata
+Miután a felhasználó belépett az alkalmazásba megjeleneik egy kép az MNIST datasetből. A felhasználónak ezután meg kell adnia azt a számot amiröl úgy gondolja a képen van.
+
+### 9.3 Felhasználói adatok törlése
+Amennyiben a felhasználó törölni kívánja az alkalmazás által tárolt adatokat a jobb felső sarokban lévő "clear cookies" gombra kattintva megteheti
 
 ## 10. Fogalomszótár
 
