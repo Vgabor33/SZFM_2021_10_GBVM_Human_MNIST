@@ -56,6 +56,11 @@ A weboldalnak tudnia kell igazodni a megjelenítő eszköz felbontásához.
 
 ## 7. Fogalomszótár
 
+HTML - Hyper Text Markup Language, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/HTML).
 
+CSS - Cascading Style Sheets, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/CSS)
 
+SQL - Structured Query Language, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/SQL)
+
+PHP - egy széles körben használható programozási (szkript-) nyelv, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/PHP)
 
