@@ -14,9 +14,7 @@ A Magyar Kormány által szeretnénk egy olyan eszközt/statisztikát nyújtani 
 
 ## 2. Vágyott rendszer
 
-Milyen rendszert szeretne a cég.
-
-
+A projekt célja legyen egy olyan kiértékelhető interaktív feladat, ami később olyan adatokkal szolgál amit statisztikailag fel lehet majd dolgozni. A regisztráció legyen választható, tartalmazzon valamilyen helység meghatározást hogy honnan tölti ki (pl.: megye). Az regisztrációs felület után, legyen ismertető, hogy mi a felhasználónak a feladata, ez tanulási mintákat is tartalmazzon. A mérés már tanulási mintákból is elkezdődhet, a teszt adatokból mindenképpen legyen. A tesztben megjelenő képek legyenek súlyozottan randomizálva, hogy a nehésség fokozatosan növekedjen. A weboldal megjelenése legyen kompatibilis, mobiltelefon, akár tablet képméreteivel, tehát rendelkezzen reszponzív felülettel. A tanulói és teszt képek ne foglaljanak túl sok tárhelyet. A weboldal kezelhetősége megjelenése legyen egyszerű  és lényegre törő, hogy minél több ember tudja használni. A teszt folyamatot bármikor meg lehessen szakítani, és újra lehessen folytatni. Az teszt eredményt felhasználó döntse el menteni szeretné-e. A teszt képek egymás után jövetele legyen gyors.
 
 ## 3. Jelenlegi üzleti folyamatok
 
