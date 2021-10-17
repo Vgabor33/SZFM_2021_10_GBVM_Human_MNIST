@@ -93,3 +93,14 @@ A felhasználó hogyan tudja használni az app-ot.
 Milyen funkciót milyen lépéseken keresztül ér el (lépésenkénti leírás).
 
 
+## 10. Fogalomszótár
+
+HTML - Hyper Text Markup Language, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/HTML).
+
+CSS - Cascading Style Sheets, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/CSS)
+
+SQL - Structured Query Language, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/SQL)
+
+PHP - egy széles körben használható programozási (szkript-) nyelv, bővebb leírás olvasható [itt](https://en.wikipedia.org/wiki/PHP)
+
+cookie - egy a felhasználó számítógépén tárolt adatcsomag, mely a felhasználó azonosításában segít. Bővebb leírás [itt](https://en.wikipedia.org/wiki/HTTP_cookie)
