@@ -4,9 +4,13 @@
 
 ## 1. Jelenlegi helyzet
 
+A mai világban a kézírás akár betűkben, de szintúgy számokban kihívást tud okozni értelmezés közben az embereknek. 
+Manapság a dokumentációk, továbbá kérvények már nem kézzel szokás írni, sokszor ezt nem mindenki engedheti meg magának, 
+de tartalmazhatnak olyan részeket így is, mint például dátum, személyes okmányok azonosítóinak feltüntetése, amiket kéz írással lehet csak feltüntetni. 
+Az értelmezésükben legtöbbször nem biztos ugyan arra ennek feldolgozója, mint aki kitöltötte, és nem mindig adja a lehetőség ilyenkor tisztázásra. 
+Ilyesmi esetekre pedig nincsen olyan eszköz ami erre felkészítené az értelmezőt, a saját írástípusok ismerete alapján pedig nem képes megfejteni, aminek következménye lehet hogy a dokumentum érvénytelen, ezáltal újraírást igényel ami értékes időbe telik. 
 
-Történet arról, hogy kinek és miért is kell ez a rendszer.
-
+A Magyar Kormány által szeretnénk egy olyan eszközt/statisztikát nyújtani munkatársainknak, és a kormány által támogatott intézményeknek, ami segítségével a különbözően írott számokat tényleges értékének értelmezését tudják gyakorolni, továbbá önkéntes alapon felmérhetjük az ország különböző területén, ki minek látja a számjegyeket.
 
 ## 2. Vágyott rendszer
 
