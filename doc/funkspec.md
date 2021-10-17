@@ -73,11 +73,11 @@ A felhasználó szemszögéből kell elkészíteni az egyes pontokat
 
 Mint látható a képen, a középen betöltünk egy képet, a bal felső sarokban pedi egy számláló, hogy hány képet talált el a felhasználó eddig. A jobb felső sarokban pedig a cookie-k által tárolt információk törölhetőek.
 
-![Képernyőterv](/images/képernyőterv1.png)
+![Képernyőterv](/images/képernyőterv2.png)
 
 A képen látható az első használat során kitöltendő menű.
 
-![Képernyőterv](/images/képernyőterv1.png)
+![Képernyőterv](/images/képernyőterv3.png)
 
 Ezen a képen egy az első használat során kitöltendő menűhöz egy kis navigációs segítség látható.
 
