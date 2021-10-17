@@ -44,8 +44,14 @@ A weboldalnak tudnia kell igazodni a megjelenítő eszköz felbontásához.
 
 ## 6. Követelménylista
 
-
-
+* [K01] Hordozhatóság
+* [K02] Reszponzív dizájn
+* [K03] Rendszerfüggetlenség
+* [K04] Gyors működés
+* [K05] Könnyű kezelhetőség
+* [K06] Kis tárhely igény
+* [K07] Bármikor megszakítható, majd folytatható kitöltés
+* [K08] Felhasználó megjegyzése (legalább helyileg)
 
 
 ## 7. Fogalomszótár
