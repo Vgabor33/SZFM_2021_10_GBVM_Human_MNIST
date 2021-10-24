@@ -27,9 +27,9 @@ Személyenkénti projektrészek:
 | Név              | Felelősségkör (kódolás)                                 | Tesztelés                 |
 |----------------- |-------------------------------------------------------- |-------------------------- |
 | Kóti Bence       | HTML (design), illetve a szerver alkalmazásfejlesztése  | Szerver alkalmazás unit- és integrációs tesztek |
-| Sándor Milán     | CSS                                                     | UI unit- és integrációs tesztek |
+| Sándor Milán     | CSS                                                     | Frontend unit- és integrációs tesztek |
 | Veress Gábor     | Szerver alkalmazás fejlesztése                          |  Szerver alkalmazás unit- és integrációs tesztek |
-| Nagy Viktor Márk | JavaScript                                              | UI unit- és integrációs tesztek |
+| Nagy Viktor Márk | JavaScript                                              | Frontend unit- és integrációs tesztek |
 
 
 ### Mérföldkövek
