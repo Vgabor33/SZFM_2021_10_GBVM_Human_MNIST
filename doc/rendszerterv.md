@@ -2,15 +2,15 @@
 
 A rendszer célja egy olyan kiértékelhető interaktív teszt, aminek eredményeit később statisztikailag fel lehet dolgozni.
 
-A felhasználó dönthet arról, hogy regisztrálja magát a rendszerbe, vagy anonymus ként folytatja a teszt kitöltését. A regisztrált felhasználókat kitöltés helyszíne alapján, megyénként lehet majd megkülönböztetni.
+A felhasználó dönthet arról, hogy regisztrálja magát a rendszerbe, vagy névtelen felhasználóként folytatja a teszt kitöltését. A regisztrált felhasználókat kitöltés helyszíne alapján, megyénként lehet majd megkülönböztetni.
 
-A rendszer egy tanító felülettel kezdjen ahol, felkészíti a felhasználót a teszt kitöltésére.
+A rendszer egy tanító felülettel kezdjen, ahol felkészíti a felhasználót a teszt kitöltésére.
 
-A felhasználó bármikor tudja tesztet félbehagyni, hogy később tudja folytatni. A már befelyezett teszt mentése opcionális lesz, ha esetleg nem szándékozik az eredményét megosztani.
+A felhasználó bármikor tudja a tesztet félbehagyni, hogy később tudja folytatni. A már befejezett teszt mentése opcionális lesz, ha esetleg nem szándékozik az eredményét megosztani.
 
-A felület fontos hogy elérhető legyen telefonon, és weben is. Webes felület kombatibilis, összes lehetséges eszköz képméretével.
+A felület fontos hogy elérhető legyen telefonon és weben is. Webes felület legyen kombatibilis az összes lehetséges eszköz képméretével.
 
-A rendszer intuitív, minimalista, és esztétikus felülettel fog rendelkezni, egyszerű kezelése és felhasználóbarát felület elérése érdekében.
+A rendszer intuitív, minimalista, és esztétikus felülettel fog rendelkezni, egyszerű kezelés és felhasználóbarátság elérése érdekében.
 
 
 ## 2. Projektterv
