@@ -206,7 +206,14 @@ A lenti képen látható a tervezett rendszer arhitektuális terve:
 
 ![Architekturális terv](/images/architekturalis-terv.png)
 
+A szerver és kliens közti kapcsolat az alábbi API specifikáció alapján lesz felépítve:
+
+![API kép](/images/api.png)
+
 ## 9. Adatbázisterv
+Az alábbi kép alapján lesz elkészítve az adatbázis.
+Az adatbázis maga rendszer- és környezetfüggetlen.
+
 ![Adatbázisterv ER gráfja](/images/adatbazisterv.png)
 
 
