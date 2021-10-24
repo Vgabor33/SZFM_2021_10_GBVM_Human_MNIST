@@ -107,8 +107,9 @@ A lenti képen látható a tervezett rendszer arhitektuális terve:
 
 ## 10. Implementációs terv
 
+A lenti képen látható a szerver implementációs terve:
 
-
+![Implementációs terv](/images/impl-terv.png)
 
 ## 11. Tesztterv
 
