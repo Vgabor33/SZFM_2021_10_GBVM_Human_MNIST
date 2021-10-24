@@ -115,10 +115,65 @@ Az adatokat egyszerűen meg tudja osztani az ügyféllel vagy szerződővel
 * [K08] Felhasználó megjegyzése (legalább helyileg)
 
 ## 5. Funkcionális terv
+### 5.1. Az elkészítendő rendszer tulajdonságai
+Egy kliens alkalmazás, mely
+ * könnyedén elérhető, hogy ne tántorodjanak el a felhasználók a használatától
+ * intuitív, hogy minél kevesebb idő alatt tudja a felhasználó a tesztet elkezdeni
+ * reszponzív, hogy eszközök széles köréről kényelmesen használható legyen
 
+Egy szerver alkalmazás, mely
+ * platformfüggetlen
+ * kevés számíatási erőforrást igényel
+ * csak szabványos eszközöket használ
 
+### 5.2. Rendszerszereplők
+ * Felület (felhasználó hálózatáról elérhető weboldal)
+ * Szerver
+ * (Eszköz - Felhasználó által biztosított)
 
+### 5.3. Rendszerhasználati esetek és lefutásaik
+#### 5.3.1. A teszt terjesztése
+##### 5.3.1.1. Funkcionalitás leírása
+A tesztet lehessen könnyedén terjeszteni minél több felhasználó számára.
 
+Legyen egy internetes link melyre rákattintva a felhasználó a tesztelületre érkezik.
+
+A tesztfelület ne legyen funkcionális amíg a felhasználó meg nem adja a teszteléshez szükséges adatait (regisztrál).
+
+A felületen legyen lehetősége a felhasználónak az e-mail címének megadására.
+
+Legyen lehetősége a felhasználónak a weboldal elmentésére a könnyű elérhetőség érdekében.
+##### 5.3.1.2. Példa használai eset / lefutás
+A cég a tesztfelület címét eljuttatja a felhasználónak e-mailben. =>  
+A felhasználó az okostelefonján megnyitja a linket. =>  
+A felhasználó kitölti az adatait, mivel a rendszer nem engedi tovább ennek megtétele nékül. =>  
+A felhasználó nem szeretné megosztani az e-mail címét, ezért az e-mail mezőt üresen hagyja. =>  
+A felhasználó a könnyű elérés érdekében a felületet elmenti a telefonja kezdőképernyőjére.
+#### 5.3.2. A felhasználó tesztelése
+##### 5.3.2.1. Funkcionalitás leírása
+A tesztet lehessen könnyedén kitölteni.
+
+A felületen legyen egy bemeneti mező, melybe a felhasználó beleírhatja a válaszát.
+
+A beírt válasz legyen automatikusan elküldve a szervernek.
+
+A felület a felhasználó beavatkozása nélkül prezentálja a következő tesztfeladatot.
+##### 5.3.2.2. Példa használai eset / lefutás
+A regisztrált felhasználó megnyitja a számítógépén könyvjelzőzött linket. =>  
+A tesztfelület prezentálja a felhasználó számára a szerver által rá kiosztott tesztet. =>  
+A felhasználó beírja válaszát a mezőbe. =>  
+A válasz elküldésre kerül. =>  
+A szerver újabb tesztet küld.
+#### 5.3.3. A tesztadatok kinyerése
+##### 5.3.3.1. Funkcionalitás leírása
+Az adatokat lehessen minél könnyebben kinyerni a rendszerből.
+
+Legyen egy szabványos adatbázis, melyet el lehet küldeni feldolgozásra, adatbányászatra.
+##### 5.3.3.2. Példa használai eset / lefutás
+A tesztelési idő lejárt. =>  
+Az alkalmazás szerverét leállítják. =>  
+A szerver által használt adatbázisból tetszőleges lekérdezéseket lehet végezni. =>  
+(Opcionális) A szerver alkalmazást újraindítják és a tesztelés folytatódik.
 ## 6. Fizikai környezet
 
 Az alkalmazás Android és web platformra, hordozható
