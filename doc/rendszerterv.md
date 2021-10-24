@@ -61,8 +61,14 @@ Személyenkénti projektrészek:
 
 ## 4. Követelmények
 
-
-
+* [K01] Hordozhatóság
+* [K02] Reszponzív dizájn
+* [K03] Rendszerfüggetlenség
+* [K04] Gyors működés
+* [K05] Könnyű kezelhetőség
+* [K06] Kis tárhely igény
+* [K07] Bármikor megszakítható, majd folytatható kitöltés
+* [K08] Felhasználó megjegyzése (legalább helyileg)
 
 ## 5. Funkcionális terv
 
