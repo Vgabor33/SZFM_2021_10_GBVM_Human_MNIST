@@ -22,9 +22,38 @@ Személyenkénti projektrészek:
 | Nagy Viktor Márk | JavaScript                                              | UI unit- és integrációs tesztek |
 
 
+### Mérföldkövek
+
+    [M-01] Szerepek egyértelműsítése és a projekthez szükséges állományok létrehozása, valamint a UI fájlok elkészítése
+
+    [M-02] A weboldal kinézetének elkészítése, illetve a reszponzivitás megléte
+
+    [M-03] A weboldal alap funkcionalitásának elkészítése
+
+    [M-04] A JavaScript funkcionalitás HTML oldalba integrálása, szerver alkalmazás nélküli működés elérése
+
+    [M-05] Szerver alkalmazás és adatbázis létrehozása, és köztük lévő kapcsolat működése
+
+    [M-06] Szerver alkalmazással való kommunikáció elérése a weblapról
+
+    [M-07] Kész allapot
 
 
+### Ütemterv
 
+    1. [M-01] mérföldkő elérése, ehhez egy meeting, ahol a csapat pontosan kiosztja a feladatokat, és pontos határidőket szab a részfeladatok elkészítésre
+
+    2. [M-02]-ben megfogalmazott mérföldkő elérése, azaz a HTML és CSS fejlesztők nekilátnak az oldal kinézete és reszponzivitása kidolgozásának
+
+    3. [M-03] mérföldkő elérése, azaz a JavaScript kódolása, illetve az ahhoz a HTML-ben szükséges elemek elkészítése
+
+    4. [M-04] elérése, mely a Javascript integrációt jelenti a weboldal többi részéhez
+
+    5. [M-05] -ben megfogalmazott mérföldkő elérése, azaz az adatbázis létrehozása és a szerver alkalmazás elérésének biztosítása ehhez
+
+    6. [M-06] mérföldkő elérése, tehát a helyes funkcionalitás elérése
+
+    7. Kész állapotra való törekvés (Felmerülő hibák javítása a hátralévő idő függvényében)
 
 
 ## 3. Üzleti folyamatok modellje
