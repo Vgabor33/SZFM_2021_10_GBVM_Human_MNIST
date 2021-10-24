@@ -207,8 +207,7 @@ A lenti képen látható a tervezett rendszer arhitektuális terve:
 ![Architekturális terv](/images/architekturalis-terv.png)
 
 ## 9. Adatbázisterv
-
-
+![Adatbázisterv ER gráfja](/images/adatbazisterv.png)
 
 
 ## 10. Implementációs terv
