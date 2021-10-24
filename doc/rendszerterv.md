@@ -87,7 +87,24 @@ Személyenkénti projektrészek:
 
 ## 6. Fizikai környezet
 
-
+Az alkalmazás Android és web platformra, hordozható
+eszközökre (okostelefonok, táblagépek) készül.
+- Nincsenek megvásárolt komponensek.
+- Kliens által biztosított eszközök:
+    - Webszerver
+    - Okoseszköz
+- Fejlesztői eszközök:
+    - Visual Studio Code
+    - Onenote
+    - Git
+    - MySQL Workbench
+- Tesztelési környezet:
+    - unit tesztekhez:
+        - automatizálva lesznek frontenden jest, backenden JUnit használatával
+    - Chrome
+    - Firefox
+    - Microsoft Edge
+    - Selenium
 
 ## 7. Absztrakt domain modell
 
