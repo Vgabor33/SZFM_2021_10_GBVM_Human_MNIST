@@ -197,8 +197,9 @@ eszközökre (okostelefonok, táblagépek) készül.
 
 ## 7. Absztrakt domain modell
 
+A lenti képen a rendszer nagyvonlú terve látható.
 
-
+![Absztrakt domain modell](/images/ADM.png)
 
 ## 8. Architekturális terv
 
