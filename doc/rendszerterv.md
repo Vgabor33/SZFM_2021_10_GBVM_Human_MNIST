@@ -225,15 +225,55 @@ A lenti képen látható a szerver implementációs terve:
 
 ## 11. Tesztterv
 
+A teszt célja a weboldal helyességének működése, meggyyőződés arról hogy elvárt módon működik.
 
+### UI unit- és integrációs tesztek
+Ezek a tesztek a weboldal megjelenítését tesztelik. Ide tartozik.
+- Reszponzív design tesztelése számítógépen.
+- Reszponzív design tesztelése mobil eszközön.
+- 
+
+### Szerver alkalmazás unit- és integrációs tesztek
+Ezek a teszteket a weboldal működését tesztelik. Ide tartozik.
+- Regisztráció tesztelése
+- Képekhez tartozó értékek tesztelése.
+- Adatbázis adatfelvétel teszt.
+- Adatbázis adatlekérdezés teszt.
+- 
+
+### Teszt jegyzet sablon
+
+Tesztelő neve:
+___
+Tesztelés ideje:
+___
+Tesztelt rendszer:
+___
+Teszteléshez használt rendszer:
+___
+Kapott eredmény:
+___
+Várt eredmény: 
+___
+Teszt konkluzió: 
+___
+Egyéb megjegyzés:
+___
 
 
 ## 12. Telepítési terv
 
+A weboldalt egy szerver számítógépről fog futni, minden telepítési folyamatot azon kel elvégeznünk.
 
+### Szerver követelményei
+- A szerver elérhető kell hogy legyen bármilyen eszközről, ami internet eléréssel rendelkezik.
+- A szervernek rendelkeznie kell SQL és PHP szolgáltatásokkal, valamint a futtatásokhuz szükséges erőforrásokkal.
+
+### Szerverfileok telepítése
+A weboldal telepítéséh az src mappa tartalmát ki kell csomagolnunk a szerver egy olyan mappájába ahonnan azt tudjuk hostolni.
+
+### Adatbázis létrehozása
+Az adatbázis telepítéséhez le kell futtatnunk az adatszerkezet létrehozásához mellékelt SQL parancsokat egy SQL szerver szolgáltatás konzolában.
 
 
 ## 13. Karbantartási terv
-
-
-
