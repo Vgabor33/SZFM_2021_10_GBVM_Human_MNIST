@@ -250,7 +250,7 @@ ___
 Tesztelt rendszer:
 ___
 Teszteléshez használt rendszer:
-___
+    ___
 Kapott eredmény:
 ___
 Várt eredmény: 
@@ -275,5 +275,12 @@ A weboldal telepítéséh az src mappa tartalmát ki kell csomagolnunk a szerver
 ### Adatbázis létrehozása
 Az adatbázis telepítéséhez le kell futtatnunk az adatszerkezet létrehozásához mellékelt SQL parancsokat egy SQL szerver szolgáltatás konzolában.
 
-
 ## 13. Karbantartási terv
+
+### Adatbázis karbantartása:
+-   Idönként ellenőrizni kell hogy az adatbázis megfelelően működik e: Jól működik e a rendszer nagy mennyiségű adattal, nincsenek e duplikált értékek, stb.
+-   Adatbázisban felmerülő hiba esetén be kell ütemezni a weboldal átmeneti leállítását és erről értesíteni kell a felhasználókat. A hiba kijavítása után az adatbázist manuálisan kell tesztelni SQl konzolról. Ha a tesztek sikeresek vissza lehet állítani a weboldalt.
+
+### Weboldal karbantartása:
+-   A weboldalt felhasználói igények szerint lehet bővíteni, pl opció felhasználói visszajelzésre az alkalmazáson belül.
+-   Weboldal bővítése, hibaelhárítása esetén készítünk egy másolatot és azon dolgozunk. Ha a weboldalon hiba lép fel ütemezni kell a leállítását, majd értesíteni róla a felhasználókat. Amennyiben úgy véljük hogy a másolat weboldal jól működik az eredeti weboldalt lecseréljük az újra.
