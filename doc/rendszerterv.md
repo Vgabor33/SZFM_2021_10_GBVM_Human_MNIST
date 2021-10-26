@@ -232,21 +232,29 @@ A lenti képen látható a szerver implementációs terve:
 
 ## 11. Tesztterv
 
-A teszt célja a weboldal helyességének működése, meggyyőződés arról hogy elvárt módon működik.
+A teszt célja a weboldal helyességének ellenőrzése, meggyőződés arról hogy az az elvárt módon működik.
 
 ### UI unit- és integrációs tesztek
 Ezek a tesztek a weboldal megjelenítését tesztelik. Ide tartozik.
 - Reszponzív design tesztelése számítógépen.
 - Reszponzív design tesztelése mobil eszközön.
-- 
+
+### Frontend unit- és integrációs tesztek
+Ezek a tesztek a kliensoldali szkriptek helyességét ellenőrzik.
+- DOM-manipuláció helyességének tesztelése.
+- API hívások helyességének tesztelése.
+- API válaszok parseolásának ellenőrzése.
+- Hibatűrőség tesztelése.
+- Gyorsaság benchmark.
 
 ### Szerver alkalmazás unit- és integrációs tesztek
-Ezek a teszteket a weboldal működését tesztelik. Ide tartozik.
-- Regisztráció tesztelése
-- Képekhez tartozó értékek tesztelése.
+Ezek a teszteket a szerveroldali alkalmazás működését tesztelik. Ide tartozik.
+- API hívások helyességének tesztelése.
+- API válaszok helyességének ellenőrzése.
+- Hibatűrőség tesztelése.
+- Gyorsaság benchmark.
 - Adatbázis adatfelvétel teszt.
 - Adatbázis adatlekérdezés teszt.
-- 
 
 ### Teszt jegyzet sablon
 
@@ -257,7 +265,7 @@ ___
 Tesztelt rendszer:
 ___
 Teszteléshez használt rendszer:
-    ___
+___
 Kapott eredmény:
 ___
 Várt eredmény: 
