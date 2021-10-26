@@ -70,13 +70,14 @@ Személyenkénti projektrészek:
 ### 3.1. A teszt terjesztése
 #### 3.1.1. Szereplők
  * Felhasználó
+ * Admin
 #### 3.1.2. Erőforrások
  * Internetkapcsolat
  * Publikus szerver
 #### 3.1.3. Entitások
- * Az alkalmazás
+ * A felhasználó
 #### 3.1.4. Folyamat
-A cég megosztja az alkalmazás elérhetőségét a felhasználóval =>  
+A cég (admin) megosztja az alkalmazás elérhetőségét a felhasználóval =>  
 A felhasználó felkeresi a felületet =>  
 (Opcionális) A felhasználó telepíti az alkalmazást (Könyebb elérhetőség)
 
@@ -88,19 +89,21 @@ A felhasználó felkeresi a felületet =>
  * Internetkapcsolat
  * Publikus szerver
 #### 3.2.3. Entitások
- * Az alkalmazás
+ * A felhasználó
+ * A teszt adatai
 #### 3.2.4. Folyamat
 ![A tesztelés folymatának folyamatábrája](/images/teszteles.png)
 ### 3.3. Adatok feldolgozása
 #### 3.3.1. Szereplők
  * A cég
+ * Admin
  * Ügyfél
 #### 3.3.2. Erőforrások
  * Publikus szerver
 #### 3.3.3. Entitások
  * A teszt adatai
 #### 3.3.4. Folyamat
-A cég a felmérés adatait egy szabványos formában bármikor ki tudja nyerni a szerverből =>  
+A cég (az admin) a felmérés adatait egy szabványos formában bármikor ki tudja nyerni a szerverből =>  
 Az adatokat egyszerűen meg tudja osztani az ügyféllel vagy szerződővel
 
 ## 4. Követelmények
