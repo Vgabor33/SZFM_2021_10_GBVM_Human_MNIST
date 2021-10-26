@@ -278,24 +278,38 @@ ___
 
 ## 12. Telepítési terv
 
-A weboldalt egy szerver számítógépről fog futni, minden telepítési folyamatot azon kel elvégeznünk.
+A weboldal egy szerverről fog futni, minden telepítési folyamatot azon kel elvégeznünk.
 
 ### Szerver követelményei
 - A szerver elérhető kell hogy legyen bármilyen eszközről, ami internet eléréssel rendelkezik.
-- A szervernek rendelkeznie kell SQL és PHP szolgáltatásokkal, valamint a futtatásokhuz szükséges erőforrásokkal.
+- A szervernek rendelkeznie kell adatbázis és webszerver szolgáltatásokkal, valamint a futtatásokhuz szükséges erőforrásokkal.
+- A szervernek implementálnia kell a megadott REST APIt és annak megfelelően kiszolgálni a kapott HTTP kéréseket.
 
-### Szerverfileok telepítése
-A weboldal telepítéséh az src mappa tartalmát ki kell csomagolnunk a szerver egy olyan mappájába ahonnan azt tudjuk hostolni.
+### Szerverfájlok telepítése
+A rendszer telepítéséhez a megfelelő állományokat a webszerver egy olyan mappájába kell helyezni ahonnan azok ki lesznek szolgálva.
+
+### Szerver elindítása
+Mivel a rendszer PHP-t használ backend-ként, azt nem szükséges külön elindítani.
+
+Az egyetlen feltétel a szükséges erőforrások elérhetősége:
+ * A webszerver
+ * Az adatbázis
 
 ### Adatbázis létrehozása
-Az adatbázis telepítéséhez le kell futtatnunk az adatszerkezet létrehozásához mellékelt SQL parancsokat egy SQL szerver szolgáltatás konzolában.
+Az adatbázist a PHP szerver-oldali szkript fogja felépíteni, amennyiben nem találja a megfelelő struktúrát.  
+Ehhez szükséges egy meglévő adatbázisrednszer, valamint egy ahhoz tartozó autentikáció fájlba kimentése.  
+Ezek után, amennyiben a szkripnek megfelelő a jogosultsága, így ki tudja olvasni a fájlt, autentikálni tudja magát az adatbázisrendszerben és létre tudja hozni a szükséges táblákat, az adatbázis késznek tekinthető.
+
+Bármilyen váratlan probléma esetén a szerver naplózik a konzolra (webszerverenként változik ennek pontos helye), valamint egy naplófájlba is.
 
 ## 13. Karbantartási terv
 
 ### Adatbázis karbantartása:
--   Idönként ellenőrizni kell hogy az adatbázis megfelelően működik e: Jól működik e a rendszer nagy mennyiségű adattal, nincsenek e duplikált értékek, stb.
--   Adatbázisban felmerülő hiba esetén be kell ütemezni a weboldal átmeneti leállítását és erről értesíteni kell a felhasználókat. A hiba kijavítása után az adatbázist manuálisan kell tesztelni SQl konzolról. Ha a tesztek sikeresek vissza lehet állítani a weboldalt.
+- Idönként ellenőrizni kell hogy az adatbázis megfelelően működik-e: Jól működik-e a rendszer nagy mennyiségű adattal, nincsenek-e duplikált értékek, stb.
+- Adatbázisban felmerülő hiba esetén be kell ütemezni a webszerver átmeneti leállítását és erről értesíteni kell a felhasználókat.
+  Az adatbázis-hiba kijavítása után ellenőrizni kell, hogy a webszerver helyesen felismerte-e az adatbázist, valamint helyesen tudja-e azt kezelni.
 
 ### Weboldal karbantartása:
--   A weboldalt felhasználói igények szerint lehet bővíteni, pl opció felhasználói visszajelzésre az alkalmazáson belül.
--   Weboldal bővítése, hibaelhárítása esetén készítünk egy másolatot és azon dolgozunk. Ha a weboldalon hiba lép fel ütemezni kell a leállítását, majd értesíteni róla a felhasználókat. Amennyiben úgy véljük hogy a másolat weboldal jól működik az eredeti weboldalt lecseréljük az újra.
+- Az alkalmazást felhasználói vagy megrendelői igények szerint lehet bővíteni. Például felhasználói visszajelzések alapján új elemeket fejleszteni, elemek viselkedését megváltoztatni.
+- Weboldal bővítése, hibajavítása esetén elegendő a frissebb állományokkal felülírni az eredeti állományokat, valamint igény esetén egy gyorsítótár-ürítést elvégezni.
+  Kompatibilitást törő, valamint komplexebb módosítások esetén (például az API visszafele nem kompatibilis módon való módosítása) javasolt a szolgáltatás ideiglenes (pár perc) szüneteltetése. Erről nem feltétlenül szükséges a felhasználókat értesíteni.
