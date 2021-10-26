@@ -123,15 +123,18 @@ Egy kliens alkalmazás, mely
  * könnyedén elérhető, hogy ne tántorodjanak el a felhasználók a használatától
  * intuitív, hogy minél kevesebb idő alatt tudja a felhasználó a tesztet elkezdeni
  * reszponzív, hogy eszközök széles köréről kényelmesen használható legyen
+ * szabványos, hogy könnyen fenntartható legyen
 
 Egy szerver alkalmazás, mely
  * platformfüggetlen
- * kevés számíatási erőforrást igényel
+ * kevés számítási erőforrást igényel
  * csak szabványos eszközöket használ
 
 ### 5.2. Rendszerszereplők
  * Felület (felhasználó hálózatáról elérhető weboldal)
  * Szerver
+ * Szerveroldali applikáció, mely kommunikál a kliensekkel
+ * Szerveren futó adatbázis
  * (Eszköz - Felhasználó által biztosított)
 
 ### 5.3. Rendszerhasználati esetek és lefutásaik
