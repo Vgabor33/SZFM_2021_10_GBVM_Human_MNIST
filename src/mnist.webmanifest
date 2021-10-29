@@ -1,0 +1,17 @@
+{
+    "description": "Human MNIST",
+    "theme_color": "#5f9fe9",
+    "background_color": "#333",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "https://vikt0r.eu/mnist/0_63.jpg",
+            "sizes": "28x28"
+        }
+    ],
+    "lang": "en",
+    "name": "Human MNIST",
+    "orientation": "portrait",
+    "scope": "/mnist/",
+    "start_url": "/mnist"
+}

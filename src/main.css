@@ -1,0 +1,480 @@
+:root {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    --default-shadow: 0 0 2rem rgba(0, 0, 0, 0.39);
+    --popup-green: rgb(0, 128, 0);
+    --popup-red: rgb(182, 0, 0);
+}
+
+.hidden {
+    display: none !important;
+}
+
+body {
+    background-color: rgb(95, 159, 233);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.39);
+    display: flex;
+}
+
+.menu {
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    gap: 0.8rem;
+}
+
+button {
+    font-size: 1.4rem;
+    background-color: rgb(236, 236, 236);
+    border-color: rgb(196, 196, 196);
+    border-style: solid;
+}
+
+select, input {
+    border-left: 0;
+    border-right: 0;
+    border-color: rgb(196, 196, 196);
+    border-style: solid;
+    background-color: rgb(220, 238, 248);
+}
+
+select option:first-child{
+    text-align: center;
+}
+
+input:valid {
+    border-bottom: 3px solid green;
+}
+
+input:invalid {
+    border-bottom: 3px solid red;
+}
+
+.streak-counter {
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: 1em;
+    background-image: url("img/flamer.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: padding-box;
+    background-position: center;
+    padding: 1.3rem;
+    padding-bottom: 0.1rem;
+    padding-top: 2.5rem;
+    box-sizing: border-box;
+}
+
+.menubutton-wrapper {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.menubutton {
+    background-image: url("img/hamburger.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: padding-box;
+    background-position: center;
+    border-radius: 100%;
+    background-color: white;
+    border: 0;
+    width: 4rem;
+    height: 4rem;
+    box-shadow: var(--default-shadow);
+}
+
+.menubutton {
+    font-size: 0;
+}
+
+.flex-fill {
+    flex-grow: 1;
+}
+
+form {
+    display: contents;
+}
+
+.first-time-overlay {
+    box-shadow: 0 0 0 200vmax rgba(0, 0, 0, 0.692);
+}
+
+#first_time_overlay {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.first-time-text {
+    /*position: absolute;*/
+    /*top: -3em;*/
+    /*left: -60vw;*/
+    width: 65vw;
+    font-size: 2em;
+    color: white;
+    transform-origin: bottom right;
+}
+
+.smallnum {
+    text-align: center;
+    display: block;
+    font-size: 2rem;
+    color: white;
+    width: 3ch;
+}
+
+.bigimg-wrapper {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.bigimg {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    box-sizing: border-box;
+    border-radius: 4rem;
+    background-color: black;
+    border: 0.3rem solid rgb(196, 196, 196);
+    box-shadow: var(--default-shadow);
+}
+
+img {
+    image-rendering: pixelated;
+}
+
+#user_input {
+    width: 11ch;
+    text-align: center;
+    font-size: 3rem;
+    border-radius: 1.5rem;
+    border: 0.3rem solid rgb(196, 196, 196);
+    box-shadow: var(--default-shadow);
+}
+
+#user_input:focus {
+    height: 0;
+    border: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    display: block;
+}
+
+input, select {
+    font-size: 1.4rem;
+}
+
+.load-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.692);
+}
+
+.loader {
+    margin: auto;
+    border: 13px solid #f3f3f3;
+    /* Light grey */
+    border-top: 13px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 1.4s linear infinite;
+}
+
+.notification-area {
+    position: fixed;
+    display: flex;
+    left: 0;
+    right: 0;
+    top: 2rem;
+    bottom: 0;
+    font-size: 1.8rem;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.popup {
+    animation: popup-once;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    border-style: solid;
+    border-width: 5px;
+    border-color: transparent;
+    border-radius: 2rem;
+    background-color: white;
+    padding: 0.1rem 0.5rem;
+    width: max-content;
+}
+
+@keyframes popup-once {
+    0% {
+        transform: translateY(-100vh);
+    }
+    10% {
+        transform: translateY(0);
+    }
+    90% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes pulse-once {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    90% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-once2 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    90% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake-once {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-1rem);
+    }
+    30% {
+        transform: translateX(+1rem);
+    }
+    60% {
+        transform: translateX(-1rem);
+    }
+    90% {
+        transform: translateX(+1rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes shake-once2 {
+    0% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-1rem);
+    }
+    30% {
+        transform: translateX(+1rem);
+    }
+    60% {
+        transform: translateX(-1rem);
+    }
+    90% {
+        transform: translateX(+1rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-from-left {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-to-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+@keyframes slide-from-top {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-to-top {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pulse {
+    animation-name: pulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.fade-in {
+    animation-name: fade-in;
+    animation-duration: 0.3s;
+}
+
+.fade-out {
+    animation-name: fade-out;
+    animation-duration: 0.3s;
+}
+
+.slide-from-left {
+    animation-name: slide-from-left;
+    animation-duration: 0.3s;
+}
+
+.slide-to-left {
+    animation-name: slide-to-left;
+    animation-duration: 0.3s;
+}
+
+.slide-to-top {
+    animation-name: slide-to-top;
+    animation-duration: 0.3s;
+}
+
+.slide-from-top {
+    animation-name: slide-from-top;
+    animation-duration: 0.3s;
+}
+
+.pulse-class {
+    animation-name: pulse-once;
+    animation-duration: 0.3s;
+}
+
+.pulse-class2 {
+    animation-name: pulse-once2;
+    animation-duration: 0.3s;
+}
+
+.shake-class {
+    animation-name: shake-once;
+    animation-duration: 0.3s;
+}
+
+.shake-class2 {
+    animation-name: shake-once2;
+    animation-duration: 0.3s;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="manifest" href="mnist.webmanifest">
+    <title>MNIST</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body onload="onLoad()">
+    <div class="main">
+        <div class="streak-counter pulse-class">
+            <span class="smallnum" id="streak_number">
+                <!-- Get number in JavaScript -->
+            </span>
+        </div>
+        <div class="menubutton-wrapper">
+            <button class="menubutton" onclick="onMenuButtonClicked(this, 'menu')">menu button</button>
+        </div>
+        <div class="menubutton-wrapper hidden" id="first_time_overlay">
+            <div class="first-time-text pulse">
+                Open the menu and tell us your details!&#8628;
+            </div>
+            <button class="menubutton first-time-overlay" onclick="onMenuButtonClicked(this, 'menu')">menu
+                button</button>
+        </div>
+        <div class="bigimg-wrapper">
+            <img class="bigimg" id="mnist_image" src="img/0_63.jpg" alt="MNIST image">
+            <!-- Get src for this image in JavaScript -->
+        </div>
+        <input type="number" id="user_input" placeholder="Tap to begin!" oninput="onNumberInput(this)" />
+    </div>
+    <div class="menu-wrapper hidden" id="menu">
+        <div class="menu slide-from-left">
+            <label for="region_select">Region</label>
+            <select id="region_select">
+                <option value="0">-- Please Choose --</option>
+                <option value="1">Africa</option>
+                <option value="2">Asia</option>
+                <option value="3">The Caribbean</option>
+                <option value="4">Central America</option>
+                <option value="5">Europe</option>
+                <option value="6">North America</option>
+                <option value="7">Oceania</option>
+                <option value="8">South America</option>
+            </select>
+            <label for="age_input">Age</label>
+            <input id="age_input" type="number" />
+            <label for="education_select">Education (Highest)</label>
+            <select id="education_select">
+                <option value="0">-- Please Choose --</option>
+                <option value="1">None</option>
+                <option value="2">Elementary School</option>
+                <option value="3">Middle School</option>
+                <option value="4">High School</option>
+                <option value="5">University</option>
+                <option value="6">College</option>
+            </select>
+            <button id="submit_data" onclick="onSubmitDataClicked(this)">Submit</button>
+            <hr>
+            <label for="email">E-mail address</label>
+            <input id="email" type="email" placeholder="anna@example.com" />
+            <button id="submit_email" onclick="onSubmitEmailClicked(this)">Submit</button>
+            <div class="flex-fill"></div>
+            <button onclick="onResetButtonClicked(this)">Reset</button>
+            <div></div>
+        </div>
+        <div class="flex-fill" onclick="onMenuExited(this.parentElement)"></div>
+    </div>
+    <div class="load-wrapper hidden" id="loader">
+        <div class="loader"></div>
+    </div>
+    <div class="notification-area" id="notification_area">
+    </div>
+    <div style="position:fixed; top: 0; right: 0;">
+        <button style="background-color: #F0F; border: none;" onclick="onResetButtonClicked(this)">clear
+            cookies</button>
+    </div>
+</body>
+
+</html>
