@@ -166,7 +166,6 @@ form {
 }
 
 .bigimg-wrapper {
-    width: 100%;
     padding: 2rem;
     box-sizing: border-box;
 }
@@ -482,20 +481,43 @@ input, select {
 
 @media only screen and (max-width: 600px) {
 
+    .streak-counter {
+        
+    }
+
+    .menubutton-wrapper {
+
+    }
+
+    .bigimg-wrapper {
+        width: 100%;
+    }
+    
+
 }
 
 @media only screen and (min-width: 600px) {
+    .bigimg-wrapper {
+        width: 100%;
+    }
 
 }
 
 @media only screen and (min-width: 768px) {
+    .bigimg-wrapper {
+        width: 100%;
+    }
 
 }
 
 @media only screen and (min-width: 992px) {
-
+    .bigimg-wrapper {
+        height: 70%;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
-
+    .bigimg-wrapper {
+        height: 75%;
+    }
 }
