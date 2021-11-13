@@ -3,7 +3,7 @@
 var apiPath = "api.php";
 try{
     if(process?.env?.NODE_ENV === "test"){
-        var fetch = require("node-fetch");
+        //var fetch = require("node-fetch");
         apiPath = "http://localhost:9003/src/api.php";
     }
 }catch(_){}
@@ -259,6 +259,11 @@ async function postData(url = '', data = {}) {
         .then(response => {
             hideLoading();
             return response;
+        }).catch(reason => {
+            hideLoading();
+            popupError("Failed to fetch! see console");
+            console.log(reason);
+            return response;
         });
 }
 async function getData(url = '', data = null) {
@@ -272,6 +277,11 @@ async function getData(url = '', data = null) {
     return fetch(url, headers)
         .then(response => {
             hideLoading();
+            return response;
+        }).catch(reason => {
+            hideLoading();
+            popupError("Failed to fetch! see console");
+            console.log(reason);
             return response;
         });
 }
