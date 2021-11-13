@@ -80,6 +80,19 @@
         <button style="background-color: #F0F; border: none;" onclick="onResetButtonClicked(this)">clear
             cookies</button>
     </div>
+</div>
+<div class="statisticsbutton-wrapper">
+    <button class="statisticsbutton" onclick="onStatisticsButtonClicked(this, 'statistics')">Statistics button</button>
+</div>
+<div class="statistics-wrapper hidden" id="statistics">
+    <div class = "statistics slide-from-left">
+        Longest guessing streak:0<br>
+        Right guesses so far:0<br>
+        Wrong guesses so far:0<br>
+        Right guess percentage:0%<br>
+        Most word guessed right:null<br>
+    </div>
+</div>
 </body>
 
 </html>

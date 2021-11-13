@@ -8,7 +8,7 @@ try{
     }
 }catch(_){}
 
-
+var statsticsWindowOpen = false;
 var currentTest;
 var menuHandlers = new Map([
     ["menu", () => {
@@ -65,6 +65,33 @@ function onMenuButtonClicked(sender, menuId) {
     menuElem.classList.add("fade-in");
     menuElem.classList.remove("hidden");
     menuHandlers.get(menuId)();
+}
+function onStatisticsButtonClicked(sender, menuId) {
+    if(statsticsWindowOpen==false)
+    {
+        console.log("menu opened: ", menuId);
+        const menuElem = document.getElementById(menuId);
+        menuElem.classList.add("fade-in");
+        menuElem.classList.remove("hidden");
+        statsticsWindowOpen = true;
+    }else{
+        console.log("menu closed: ", menuId);
+        const menuElem = document.getElementById(menuId);
+        menuElem.classList.remove("fade-in");
+        menuElem.classList.add("fade-out");
+        for (const elem of menuElem.children) {
+            elem.classList.add("slide-to-left");
+        }
+        setTimeout(() => {
+            menuElem.classList.add("hidden");
+            menuElem.classList.remove("fade-out");
+            for (const elem of menuElem.children) {
+                elem.classList.remove("slide-to-left");
+                elem.classList.add("slide-from-left");
+            }
+            statsticsWindowOpen = false;
+        }, 290);
+    }
 }
 function onMenuExited(sender) {
     console.log("menu closed: ", sender.id);
