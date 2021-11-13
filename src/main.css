@@ -53,6 +53,10 @@ body {
     gap: 0.8rem;
 }
 
+label {
+    font-weight: 700;
+}
+
 button {
     font-size: 1.4rem;
     background-color: rgb(236, 236, 236);
