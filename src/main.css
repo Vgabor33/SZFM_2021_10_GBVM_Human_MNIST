@@ -495,7 +495,7 @@ input, select {
     }
 
     .bigimg-wrapper {
-        width: 100%;
+        width: 80%;
     }
     
 
@@ -503,26 +503,30 @@ input, select {
 
 @media only screen and (min-width: 600px) {
     .bigimg-wrapper {
-        width: 100%;
+        height: 500px;
+        width: 500px;
     }
 
 }
 
 @media only screen and (min-width: 768px) {
     .bigimg-wrapper {
-        width: 100%;
+        height: 650px;
+        width: 650px;
     }
 
 }
 
 @media only screen and (min-width: 992px) {
     .bigimg-wrapper {
-        height: 70%;
+        height: 650px;
+        width: 650px;
     }
 }
 
 @media only screen and (min-width: 1200px) {
     .bigimg-wrapper {
-        height: 75%;
+        height: 650px;
+        width: 650px;
     }
 }
