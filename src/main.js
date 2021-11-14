@@ -27,9 +27,9 @@ async function onLoad() {
 
     // Initiate tutorial
     if (getCookie("server-token")) {
-        document.getElementById("first_time_overlay").remove();
+        document.getElementById("first_time_overlay")?.remove();
     } else {
-        document.getElementById("first_time_overlay").classList.remove("hidden");
+        document.getElementById("first_time_overlay")?.classList?.remove("hidden");
     }
 
     // Get User Data
