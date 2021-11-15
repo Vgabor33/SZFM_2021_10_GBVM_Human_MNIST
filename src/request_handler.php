@@ -27,6 +27,41 @@ class TokenGenerator
     }
 }
 
+
+class DBHandler
+{
+    private $servername;
+    private $db_username;
+    private $db_password;
+    private $dbname;
+
+    private function __construct() 
+    {
+        $this->servername="localhost";
+        $this->db_username="root";
+        $this->db_password="root";
+        $this->dbname="human_mnist";
+    }
+
+    public function get_serverName()
+    {
+        return $this->servername;
+    }
+
+    public function get_userName()
+    {
+        return $this->db_username;
+    }
+    public function get_password()
+    {
+        return $this->db_password;
+    }
+    public function get_dbName()
+    {
+        return $this->dbname;
+    }
+}
+
 switch ($action) {
     case 'register':
         break;
