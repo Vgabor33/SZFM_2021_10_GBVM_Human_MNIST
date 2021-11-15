@@ -87,6 +87,18 @@ class DBHandler
         $conn->close();
     }
 
+    public static function setEmail($serverToken,$clientToken,$email)
+    {
+        $sql= "UPDATE human_mnist.users SET email = '".$email."' WHERE serverToken = '".$serverToken."' AND clientToken = '".$clientToken."' ";
+        $conn = DBHandler::newConnection();
+        if (!($conn->query($sql)) === TRUE) 
+        {
+            http_response_code(500);
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+    }
+
 }
 
 switch ($action) {
