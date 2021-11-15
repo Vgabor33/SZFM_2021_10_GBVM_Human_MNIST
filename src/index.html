@@ -18,21 +18,33 @@
                 <!-- Get number in JavaScript -->
             </span>
         </div>
-        <div class="menubutton-wrapper">
-            <button class="menubutton" onclick="onMenuButtonClicked(this, 'menu')">menu button</button>
-        </div>
-        <div class="menubutton-wrapper hidden" id="first_time_overlay">
-            <div class="first-time-text pulse">
-                Open the menu and tell us your details!&#8628;
-            </div>
-            <button class="menubutton first-time-overlay" onclick="onMenuButtonClicked(this, 'menu')">menu
-                button</button>
-        </div>
         <div class="bigimg-wrapper">
             <img class="bigimg" id="mnist_image" src="img/0_63.jpg" alt="MNIST image">
             <!-- Get src for this image in JavaScript -->
         </div>
         <input type="number" id="user_input" placeholder="Tap to begin!" oninput="onNumberInput(this)" />
+    </div>
+    <div class="menubutton-wrapper">
+        <button class="menubutton" onclick="onMenuButtonClicked(this, 'statistics')">Statistics
+            button</button>
+        <button class="menubutton hamburger" onclick="onMenuButtonClicked(this, 'menu')">menu button</button>
+    </div>
+    <div class="menubutton-wrapper hidden" id="first_time_overlay">
+        <div class="first-time-text pulse">
+            Open the menu and tell us your details!&#8628;
+        </div>
+        <button class="menubutton hamburger first-time-overlay" onclick="onMenuButtonClicked(this, 'menu')">menu
+            button</button>
+    </div>
+    <div class="menu-wrapper hidden" id="statistics">
+        <div class="menu slide-from-left">
+            Longest guessing streak:0<br>
+            Right guesses so far:0<br>
+            Wrong guesses so far:0<br>
+            Right guess percentage:0%<br>
+            Most word guessed right:null<br>
+        </div>
+        <div class="flex-fill" onclick="onMenuExited(this.parentElement)"></div>
     </div>
     <div class="menu-wrapper hidden" id="menu">
         <div class="menu slide-from-left">
@@ -80,19 +92,6 @@
         <button style="background-color: #F0F; border: none;" onclick="onResetButtonClicked(this)">clear
             cookies</button>
     </div>
-</div>
-<div class="statisticsbutton-wrapper">
-    <button class="statisticsbutton" onclick="onStatisticsButtonClicked(this, 'statistics')">Statistics button</button>
-</div>
-<div class="statistics-wrapper hidden" id="statistics">
-    <div class = "statistics slide-from-left">
-        Longest guessing streak:0<br>
-        Right guesses so far:0<br>
-        Wrong guesses so far:0<br>
-        Right guess percentage:0%<br>
-        Most word guessed right:null<br>
-    </div>
-</div>
 </body>
 
 </html>

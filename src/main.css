@@ -110,10 +110,10 @@ input:invalid {
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
+    gap: 0.3rem;
 }
 
 .menubutton {
-    background-image: url("img/hamburger.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-origin: padding-box;
@@ -124,6 +124,10 @@ input:invalid {
     width: 4rem;
     height: 4rem;
     box-shadow: var(--default-shadow);
+}
+
+.hamburger {
+    background-image: url("img/hamburger.png");
 }
 
 .menubutton {
