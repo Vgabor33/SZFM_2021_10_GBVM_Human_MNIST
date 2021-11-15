@@ -103,6 +103,27 @@ class DBHandler
 
 switch ($action) {
     case 'register':
+        $data = json_decode(file_get_contents('php://input'), true);
+        if (
+            isset($data['age'])
+            && isset($data['region'])
+            && isset($data['education'])
+            && $data['age'] != 0
+            && $data['region'] != 0
+            && $data['education'] != 0
+            && isset($_COOKIE['client-token'])
+        )
+        {
+            $data['streak'] = 0;
+            $serverToken = TokenGenerator::get_userToken();
+            DBHandler::insertUser($data,$serverToken);
+            echo $serverToken;
+        }
+        else 
+        {
+            http_response_code(400);
+            echo '"Invalid User Data!"';
+        }
         break;
     case 'get-userdata':
         break;
