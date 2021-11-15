@@ -27,6 +27,22 @@ class TokenGenerator
     }
 }
 
+switch ($action) {
+    case 'register':
+        break;
+    case 'get-userdata':
+        break;
+    case 'set-email':
+        break;
+    case 'respond':
+        break;
+    default:
+        http_response_code(400);
+        echo '"Bad Query!"';
+        break;
+}
 
-
+if (random_int(0, 1)) {
+    sleep(1);
+}
 ?>
