@@ -60,6 +60,18 @@ class DBHandler
     {
         return $this->dbname;
     }
+
+    private static function newConnection()
+    {
+        $dbconn = new DBHandler();
+        $conn = new mysqli($dbconn->get_serverName(), $dbconn->get_userName(), $dbconn->get_password(), $dbconn->get_dbName());
+        if ($conn->connect_error) {
+            http_response_code(500);
+            echo "Error: ". $conn->connect_error;
+            die("Connection failed: " . $conn->connect_error);
+        }
+        return $conn;
+    }
 }
 
 switch ($action) {
