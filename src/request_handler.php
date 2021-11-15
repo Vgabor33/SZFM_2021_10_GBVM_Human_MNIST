@@ -72,6 +72,21 @@ class DBHandler
         }
         return $conn;
     }
+
+    public static function insertUser($data,$serverToken)
+    {
+        $sql = "INSERT INTO human_mnist.users (`serverToken`, `clientToken`, `region`, `age`, `education`, `streak`)
+         VALUES ('".$serverToken."','".$_COOKIE['client-token']."','".$data['region']."','".$data['age']."',
+        '".$data['education']."','".$data['streak']."');";
+        $conn = DBHandler::newConnection();
+        if (!($conn->query($sql)) === TRUE) 
+        {
+            http_response_code(500);
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+    }
+
 }
 
 switch ($action) {
