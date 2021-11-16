@@ -1,14 +1,21 @@
 'use strict';
 
 var apiPath = "api.php";
-try{
-    if(process?.env?.NODE_ENV === "test"){
-        //var fetch = require("node-fetch");
+try {
+    if (process?.env?.NODE_ENV === "test") {
+        var fetch = require("node-fetch");
         apiPath = "http://localhost:9003/src/api.php";
     }
 } catch (_) { }
 
+/**
+ * Contains the last test gotten from the server. Null if first run.
+ */
 var currentTest;
+/**
+ * Handlers that run when menus with IDs are shown.
+ * eg. User opens menu with id 'statistics' -> value with that key gets run.
+ */
 var menuHandlers = new Map([
     ["menu", () => {
         if (localStorage.getItem("userData")) {
@@ -61,12 +68,15 @@ async function onLoad() {
 
     // Get User Data
     if (getCookie("server-token")) {
-        await refreshUserData()
+        await refetchUserData();
+        refreshStreak();
     }
 
     // Get last test
-    if (localStorage.getItem("")) {
-
+    if (localStorage.getItem("testData")) {
+        let test = JSON.parse(localStorage.getItem("testData"));
+        currentTest = test;
+        refreshImage();
     }
 }
 async function onNumberInput(sender) {
@@ -80,11 +90,6 @@ async function onNumberInput(sender) {
         response = await fetchTestResponse();
     }
 
-    if (!response) {
-        popupError(`Server returned null`);
-        throw new Error(`Server returned null`);
-    }
-
     let newTest = await response.json();
 
     currentTest = newTest;
@@ -93,11 +98,17 @@ async function onNumberInput(sender) {
     userData.streak = currentTest.streak;
     localStorage.setItem('userData', JSON.stringify(userData));
 
+    pulseStreakCounters();
+    refreshStreak();
     refreshImage();
 }
 function onMenuButtonClicked(sender, menuId) {
     console.log("menu opened: ", menuId);
     const menuElem = document.getElementById(menuId);
+    if(!menuElem){
+        console.error(`element with id ${menuId} not found!`);
+        throw new Error(`element with id ${menuId} not found!`);
+    }
     menuElem.classList.add("fade-in");
     menuElem.classList.remove("hidden");
     menuHandlers.get(menuId)?.();
@@ -105,6 +116,10 @@ function onMenuButtonClicked(sender, menuId) {
 function onMenuExited(sender) {
     console.log("menu closed: ", sender.id);
     const menuElem = sender;
+    if(!menuElem){
+        console.error(`element is null!`);
+        throw new Error(`element is null!`);
+    }
     menuElem.classList.remove("fade-in");
     menuElem.classList.add("fade-out");
     for (const elem of menuElem.children) {
@@ -119,7 +134,7 @@ function onMenuExited(sender) {
         }
     }, 290);
 }
-async function onSubmitDataClicked() {
+async function onSubmitDataClicked(sender) {
     // Register
     let regionElem = document.getElementById("region_select");
     let ageElem = document.getElementById("age_input");
@@ -141,7 +156,7 @@ async function onSubmitDataClicked() {
         console.log("registration failure:");
         popupError(json);
     }
-    await refreshUserData();
+    await refetchUserData();
     menuHandlers.get('menu')?.();
 }
 async function onSubmitEmailClicked(sender) {
@@ -155,7 +170,7 @@ async function onSubmitEmailClicked(sender) {
         //console.log(await res.text());
         popupError(await res.json());
     }
-    await refreshUserData();
+    await refetchUserData();
     menuHandlers.get('menu')?.();
 }
 function onResetButtonClicked(sender) {
@@ -166,26 +181,54 @@ function onResetButtonClicked(sender) {
 
 
 // DOM MANIPULATION FUNCTIONS --------------------------------------------------------------------
-function refreshImage() {
-    let streakNumElem = document?.getElementById("streak_number");
+/**
+ * Toggles between pulse-class and pulse-class2 for any element with class "streak-counter"
+ */
+function pulseStreakCounters() {
     let streakCounterElems = document?.getElementsByClassName("streak-counter");
     for (const element of streakCounterElems) {
         element?.classList?.toggle("pulse-class");
         element?.classList?.toggle("pulse-class2");
     }
-    streakNumElem.innerText = currentTest.streak;
-
+}
+/**
+ * Refreshes test image url from currentTest
+ */
+function refreshImage() {
     const inputElem = document.getElementById("user_input");
     inputElem.value = "";
     document.getElementById("mnist_image").src = currentTest.test;
     inputElem.focus();
 }
+/**
+ * Refreshes streak counter from currentTest or storage::userData, whichever is non-null
+ */
+function refreshStreak() {
+    let streakNumElem = document?.getElementById("streak_number");
+    if (streakNumElem) {
+        streakNumElem.innerText = currentTest?.streak ?? JSON.parse(localStorage?.getItem('userData'))?.streak ?? 0;
+    }
+}
+/**
+ * Alias for popup(text) with configured color.
+ * @param {*} text popup text
+ */
 async function popupError(text) {
     popup(text, 'var(--popup-red)')
 }
+/**
+ * Alias for popup(text) with configured color.
+ * @param {*} text popup text
+ */
 async function popupSuccess(text) {
     popup(text, 'var(--popup-green)')
 }
+/**
+ * Creates a popup into the notification_area element, which will go away by itself.
+ * 
+ * @param {*} text popup text
+ * @param {*} borderColor css-friendly color
+ */
 async function popup(text, borderColor = "transparent") {
     const notificationAreaElem = document.getElementById("notification_area");
 
@@ -198,14 +241,25 @@ async function popup(text, borderColor = "transparent") {
     await new Promise(resolve => setTimeout(resolve, 5000));
     innerDiv.remove();
 }
+/**
+ * Indicates whether the loading overlay should be displayed. Doesn't guarantee it is.
+ * Used for when a fetch request completes fast enough to not warrant a loading screen.
+ */
 var shouldShowLoading = false;
-async function showLoading() {
+/**
+ * Schedules the loading overlay to appear. Doesn't guarantee it displaying.
+ * If shouldShowLoading is set to true within {delayMs}, doesn't show loading overlay.
+ */
+async function showLoading(delayMs = 200) {
     shouldShowLoading = true;
-    await new Promise(resolve => setTimeout(resolve, 200));
+    await new Promise(resolve => setTimeout(resolve, delayMs));
     if (shouldShowLoading) {
         document?.getElementById("loader")?.classList?.remove("hidden");
     }
 }
+/**
+ * Hides the loading overlay.
+ */
 function hideLoading() {
     shouldShowLoading = false;
     document?.getElementById("loader")?.classList?.add("hidden");
@@ -213,7 +267,7 @@ function hideLoading() {
 
 
 // DATA RETRIEVAL FUNCTIONS ----------------------------------------------------------------------
-async function refreshUserData() {
+async function refetchUserData() {
     let response = await fetchUserData();
     let json = await response.json();
     localStorage.setItem("userData", JSON.stringify(json));
@@ -224,7 +278,6 @@ async function refreshUserData() {
     }
     console.log(json);
 }
-
 
 // DATA FETCHING FUNCTIONS
 async function fetchTestResponse(testResponse) {
@@ -242,6 +295,9 @@ async function fetchSetEmail(email) {
 
 
 // FETCH FUNCTIONS -------------------------------------------------------------------------------
+/**
+ * The HTTP headers used for built-in POST and GET fetches.
+ */
 var http_headers = {
     method: 'POST',
     mode: 'same-origin', // no-cors, *cors, same-origin
@@ -293,9 +349,16 @@ async function getData(url = '', data = null) {
 
 
 // TOKEN FUNCTIONS ------------------------------------------------------------------------------
+/**
+ * Generates a (not cryptographically secure) token (integer number).
+ * @returns Number
+ */
 function generateToken() {
     return Math.floor(1_000_000_000_000_000 + Math.random() * 9_000_000_000_000_000);
 }
+/**
+ * Generates and stores a token into "client-token" cookie.
+ */
 function installClientToken() {
     setCookie("client-token", generateToken());
     console.log("installed client token");
