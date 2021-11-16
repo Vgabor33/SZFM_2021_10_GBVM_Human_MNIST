@@ -6,12 +6,40 @@ try{
         //var fetch = require("node-fetch");
         apiPath = "http://localhost:9003/src/api.php";
     }
-}catch(_){}
+} catch (_) { }
 
 var currentTest;
 var menuHandlers = new Map([
     ["menu", () => {
-        refreshUserData();
+        if (localStorage.getItem("userData")) {
+            const userData = JSON.parse(localStorage.getItem("userData"));
+            let { age, region, education, streak, email } = userData;
+            if (userData) {
+                document.getElementById("first_time_overlay")?.remove();
+                const submitButton = document.getElementById("submit_data");
+                const regionElem = document.getElementById("region_select");
+                const ageElem = document.getElementById("age_input");
+                const educationElem = document.getElementById("education_select");
+                const streakElem = document.getElementById("streak_number");
+                if (getCookie("server-token")) {
+                    submitButton.disabled = true;
+                    regionElem.disabled = true;
+                    ageElem.disabled = true;
+                    educationElem.disabled = true;
+                }
+                ageElem.value = age;
+                regionElem.selectedIndex = region;
+                educationElem.selectedIndex = education
+                streakElem.innerText = streak;
+
+                if (email) {
+                    const emailElem = document.getElementById("email");
+                    emailElem.value = email;
+                    const submitElem = document.getElementById("submit_email");
+                    submitElem.innerText = "Update";
+                }
+            }
+        }
     }]
 ]);
 
@@ -33,25 +61,34 @@ async function onLoad() {
 
     // Get User Data
     if (getCookie("server-token")) {
-        await getUserData()
-        refreshUserData();
+        await refreshUserData()
+    }
+
+    // Get last test
+    if (localStorage.getItem("")) {
+
     }
 }
 async function onNumberInput(sender) {
     let response
-    if(currentTest){
+    if (currentTest) {
         response = await fetchTestResponse({
             'test-token': currentTest.test_token,
             'test-response': sender.value
         });
-    }else{
+    } else {
         response = await fetchTestResponse();
     }
-    
+
+    if (!response) {
+        popupError(`Server returned null`);
+        throw new Error(`Server returned null`);
+    }
+
     let newTest = await response.json();
 
     currentTest = newTest;
-    
+
     let userData = JSON.parse(localStorage.getItem('userData'));
     userData.streak = currentTest.streak;
     localStorage.setItem('userData', JSON.stringify(userData));
@@ -104,8 +141,8 @@ async function onSubmitDataClicked() {
         console.log("registration failure:");
         popupError(json);
     }
-    await getUserData();
-    refreshUserData();
+    await refreshUserData();
+    menuHandlers.get('menu')?.();
 }
 async function onSubmitEmailClicked(sender) {
     const emailElem = document.getElementById("email");
@@ -118,8 +155,8 @@ async function onSubmitEmailClicked(sender) {
         //console.log(await res.text());
         popupError(await res.json());
     }
-    await getUserData();
-    refreshUserData();
+    await refreshUserData();
+    menuHandlers.get('menu')?.();
 }
 function onResetButtonClicked(sender) {
     clearCookies();
@@ -142,37 +179,6 @@ function refreshImage() {
     inputElem.value = "";
     document.getElementById("mnist_image").src = currentTest.test;
     inputElem.focus();
-}
-function refreshUserData() {
-    if (localStorage.getItem("userData")) {
-        const userData = JSON.parse(localStorage.getItem("userData"));
-        let { age, region, education, streak, email } = userData;
-        if (userData) {
-            document.getElementById("first_time_overlay")?.remove();
-            const submitButton = document.getElementById("submit_data");
-            const regionElem = document.getElementById("region_select");
-            const ageElem = document.getElementById("age_input");
-            const educationElem = document.getElementById("education_select");
-            const streakElem = document.getElementById("streak_number");
-            if (getCookie("server-token")) {
-                submitButton.disabled = true;
-                regionElem.disabled = true;
-                ageElem.disabled = true;
-                educationElem.disabled = true;
-            }
-            ageElem.value = age;
-            regionElem.selectedIndex = region;
-            educationElem.selectedIndex = education
-            streakElem.innerText = streak;
-
-            if (email) {
-                const emailElem = document.getElementById("email");
-                emailElem.value = email;
-                const submitElem = document.getElementById("submit_email");
-                submitElem.innerText = "Update";
-            }
-        }
-    }
 }
 async function popupError(text) {
     popup(text, 'var(--popup-red)')
@@ -207,12 +213,12 @@ function hideLoading() {
 
 
 // DATA RETRIEVAL FUNCTIONS ----------------------------------------------------------------------
-async function getUserData() {
+async function refreshUserData() {
     let response = await fetchUserData();
     let json = await response.json();
     localStorage.setItem("userData", JSON.stringify(json));
     if (response.ok) {
-        console.log("got user data");        
+        console.log("got user data");
     } else {
         console.log("failed to get user data: ")
     }
