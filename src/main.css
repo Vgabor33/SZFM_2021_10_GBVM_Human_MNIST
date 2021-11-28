@@ -55,6 +55,7 @@ body {
 
 
 button {
+    border-radius: 4px;
     font-size: 1.4rem;
     background-color: rgb(95, 159, 233);
     border-color: rgb(196, 196, 196);
@@ -62,6 +63,36 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+#reset {
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#reset span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+#reset span:after {
+    content: '\21BB';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+#reset:hover span {
+    padding-right: 25px;
+}
+  
+#reset:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
 select, input {
