@@ -65,6 +65,36 @@ button {
     display: inline-block;
 }
 
+#submit_email, #submit_data {
+    position: relative;
+    background-color: rgb(95, 159, 233);
+    border: none;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#submit_email:after, #submit_data:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#submit_email:active:after,  #submit_data:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+
 #reset {
     transition: all 0.5s;
     cursor: pointer;
