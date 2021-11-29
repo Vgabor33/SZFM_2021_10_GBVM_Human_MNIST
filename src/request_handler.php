@@ -128,6 +128,26 @@ switch ($action) {
     case 'get-userdata':
         break;
     case 'set-email':
+        if (checkCookies()) 
+        {
+            $data = json_decode(file_get_contents('php://input'), true);
+            if (isset($data['email']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL)) 
+            {
+                DBHandler::setEmail($_COOKIE['server-token'],$_COOKIE['client-token'],$data['email']);
+                $data2 = json_decode(file_get_contents($dataFilename), true);
+                $data2['email'] = $data['email'];
+                file_put_contents($dataFilename, json_encode($data2));
+            } 
+            else 
+            {
+                http_response_code(400);
+                echo '"Invalid Email!"';
+            }
+        } 
+        else 
+        {
+            badCookies();
+        }
         break;
     case 'respond':
         break;
