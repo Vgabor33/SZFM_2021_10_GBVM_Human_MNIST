@@ -184,6 +184,52 @@ switch ($action) {
         }
         break;
     case 'respond':
+        if (checkCookies()) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $data2 = json_decode(file_get_contents($dataFilename), true);
+            $first_random = random_int(0,9);
+            $second_random = random_int(0,9);
+            $third_random = random_int(0,9);
+
+            //Hármasával csináljuk a randomizálót, mivel minél több különböző számjegyet akarunk, így hármasával bebiztosítjuk, hogy nagy eséllyel különböző számjegyeket adjunk vissza
+            $random_digits = [
+                            $first_random,
+                            random_int(0,abs($first_random-1)),
+                            random_int($first_random,9),
+                            $second_random,
+                            random_int(0,abs($second_random-1)),
+                            random_int($second_random,9),
+                            $third_random,
+                            random_int(0,abs($third_random-1)),
+                            random_int($third_random,9),
+                            random_int(0,9)
+                        ];
+
+            $urls = [
+                "img/".$random_digits[0]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[1]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[2]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[3]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[4]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[5]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[6]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[7]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[8]."_".random_int(1,99999).".jpg",
+                "img/".$random_digits[9]."_".random_int(1,99999).".jpg",
+            ];
+            echo json_encode(array(
+                'test-token' => ($data['test-token'] ?? 0) + 1,
+                'streak' => ($data2['streak'] ?? 0) + 1,
+                'test' => $urls[random_int(0, count($urls) - 1)]
+            ));
+            $data2['streak']++;
+            file_put_contents($dataFilename, json_encode($data2));
+            return; // hack to not get the artificial api delay
+        } 
+        else 
+        {
+            badCookies();
+        }
         break;
     default:
         http_response_code(400);
