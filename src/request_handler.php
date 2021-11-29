@@ -99,6 +99,32 @@ class DBHandler
         $conn->close();
     }
 
+    public static function getUserDatabyToken($serverToken,$clientToken)
+    {
+        $sql= "SELECT * FROM human_mnist.users WHERE serverToken = '".$serverToken."' AND clientToken = '".$clientToken."' ";
+        $conn = DBHandler::newConnection();
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) 
+        {
+            while($row = $result->fetch_assoc()) 
+            {
+                echo "{
+                    "."age".": ".$row['age']." ,
+                    "."region".": ".$row['region'].",
+                    "."education".": ".$row['education'].",
+                    "."streak".": ".$row['streak'].",
+                    "."email".": ".$row['email']."
+                }";
+            }
+        } 
+        else 
+        {
+            http_response_code(500);
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+    }
+
 }
 
 switch ($action) {
