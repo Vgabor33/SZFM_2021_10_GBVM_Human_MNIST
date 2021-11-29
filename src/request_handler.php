@@ -152,6 +152,14 @@ switch ($action) {
         }
         break;
     case 'get-userdata':
+        if (checkCookies()) 
+        {
+            DBHandler::getUserDatabyToken($_COOKIE['server-token'],$_COOKIE['client-token']);
+        } 
+        else 
+        {
+            badCookies();
+        }
         break;
     case 'set-email':
         if (checkCookies()) 
