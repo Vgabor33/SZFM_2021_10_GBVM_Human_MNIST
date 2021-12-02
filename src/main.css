@@ -53,6 +53,30 @@ body {
     gap: 0.8rem;
 }
 
+.stat-headname {
+    border: 3px solid #d3d3d3;
+    border-radius: 4px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: #d3d3d3;
+}
+
+.stat-name {
+    color: #3498db;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.stat-results {
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-left: 1.4rem;
+    padding-bottom: 1.4rem;
+}
+
 
 button {
     border-radius: 4px;
