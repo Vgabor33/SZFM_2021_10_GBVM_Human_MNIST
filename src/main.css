@@ -211,6 +211,10 @@ input:invalid {
     box-shadow: var(--default-shadow);
 }
 
+.statistics-img {
+    background-image: url("img/stat-img.png");
+}
+
 .hamburger {
     background-image: url("img/hamburger.png");
 }
