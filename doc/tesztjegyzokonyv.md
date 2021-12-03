@@ -6,7 +6,7 @@
 
 - Tesztelő neve: Sándor Milán
 
-- Tesztelés ideje: 2021.12.03
+- Tesztelés ideje: 2021.12.03 15:57
 
 - Tesztelt rendszer: Windows 10 Home 20H2, Google Chrome (Hivatalos verzió) (64 bites)
 
@@ -25,3 +25,28 @@
 Egyéb megjegyzés: A teszteléshez használt szoftver megfelelően szimulálta a szükséges lépéseket.
 
 ![Kép a regisztráció teszteléséről](/images/reg-teszt-wo-email.png)
+
+### Regisztráció tesztelése e-mail-el Chrome Chrome böngészőben 
+
+- Tesztelő neve: Sándor Milán
+
+- Tesztelés ideje: 2021.12.03 16:29
+
+- Tesztelt rendszer: Windows 10 Home 20H2, Google Chrome (Hivatalos verzió) (64 bites)
+
+- Teszteléshez használt rendszer: Selenium IDE
+
+- Tesztelés módja:
+
+- Tesztelt eset: Regisztráció e-mail használatával.
+
+- Kapott eredmény: Sikeres regisztrálás e-mail használatával.
+
+- Várt eredmény: Sikeres regisztráció e-mail használatával.
+
+- Teszt konkluzió: A regisztrálás tervezetten e-mail-el is lehetséges, a teszt sikeres kimenete pedig ezt alátámasztja.
+
+Egyéb megjegyzés: A teszteléshez használt szoftver megfelelően szimulálta a szükséges lépéseket.
+
+![Kép a regisztráció teszteléséről](/images/reg-teszt-w-email.png)
+
