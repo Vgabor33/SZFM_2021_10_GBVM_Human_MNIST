@@ -10,7 +10,7 @@
 
 - Tesztelt rendszer: Windows 10 Home 20H2, Google Chrome (Hivatalos verzió) (64 bites)
 
-- Teszteléshez használt rendszer: 
+- Teszteléshez használt rendszer: Selenium IDE
 
 - Tesztelés módja:
 
@@ -24,6 +24,4 @@
 
 Egyéb megjegyzés: A teszteléshez használt szoftver megfelelően szimulálta a szükséges lépéseket.
 
-
-A tesztelést a Selenium IDE segítségével végeztem:
 ![Kép a regisztráció teszteléséről](/images/reg-teszt-wo-email.png)
