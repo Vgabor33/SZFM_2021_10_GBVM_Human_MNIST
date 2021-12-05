@@ -47,6 +47,9 @@ var menuHandlers = new Map([
                 }
             }
         }
+    }],
+    ["statistics", () => {
+        setStatistics();
     }]
 ]);
 
@@ -64,6 +67,7 @@ async function onLoad() {
         document.getElementById("first_time_overlay")?.remove();
     } else {
         document.getElementById("first_time_overlay")?.classList?.remove("hidden");
+        return;
     }
 
     // Get User Data
@@ -74,26 +78,26 @@ async function onLoad() {
 
     // Get last test
     if (localStorage.getItem("testData")) {
+        console.log("found last test:", JSON.parse(localStorage.getItem("testData")));
         let test = JSON.parse(localStorage.getItem("testData"));
         currentTest = test;
         refreshImage();
+    } else {
+        console.log("didn't find last test, fetching...");
+        respondToTest();
+        refreshImage();
     }
-    setStatistics();
 }
 async function onNumberInput(sender) {
-    let response
+    let newTest
     if (currentTest) {
-        response = await fetchTestResponse({
-            'test-token': currentTest.test_token,
+        newTest = await respondToTest({
+            'test-id': currentTest['test-id'],
             'test-response': sender.value
         });
     } else {
-        response = await fetchTestResponse();
+        newTest = await respondToTest();
     }
-
-    let newTest = await response.json();
-
-    currentTest = newTest;
 
     let userData = JSON.parse(localStorage.getItem('userData'));
     userData.streak = currentTest.streak;
@@ -101,7 +105,6 @@ async function onNumberInput(sender) {
 
     pulseStreakCounters();
     refreshStreak();
-    refreshImage();
 }
 function onMenuButtonClicked(sender, menuId) {
     console.log("menu opened: ", menuId);
@@ -153,6 +156,8 @@ async function onSubmitDataClicked(sender) {
         setCookie("server-token", json);
         console.log("installed server token");
         popupSuccess("Registration success!");
+
+        await respondToTest();
     } else {
         console.log("registration failure:");
         popupError(json);
@@ -278,6 +283,17 @@ async function refetchUserData() {
         console.log("failed to get user data: ")
     }
     console.log(json);
+}
+
+async function respondToTest(response) {
+    console.log("responding to test: ", response);
+    let res = await fetchTestResponse(response);
+    let test = await res.json();
+    console.log("server returned", test);
+    localStorage.setItem("testData", JSON.stringify(test));
+    currentTest = test;
+    refreshImage();
+    return currentTest;
 }
 
 // DATA FETCHING FUNCTIONS
