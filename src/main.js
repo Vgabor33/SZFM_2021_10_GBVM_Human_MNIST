@@ -1,6 +1,6 @@
 'use strict';
 
-var apiPath = "api.php";
+var apiPath = "request_handler.php";
 try {
     if (process?.env?.NODE_ENV === "test") {
         var fetch = require("node-fetch");
