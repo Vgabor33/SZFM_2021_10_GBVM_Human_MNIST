@@ -78,6 +78,7 @@ async function onLoad() {
         currentTest = test;
         refreshImage();
     }
+    setStatistics();
 }
 async function onNumberInput(sender) {
     let response
@@ -386,4 +387,42 @@ function clearCookies() {
 try {
     module.exports = { fetchTestResponse, fetchUserData, fetchRegister, fetchSetEmail }
 } catch (_) {
+}
+
+
+// STATISTICS FUNCTIONS -----------------------------------------------------------------------------
+function setStatistics(){
+    console.log("Setting up statistics menu")
+    getLongestStreak();
+    getRightGuesses();
+    getWrongGuesses();
+    getRatio();
+    getMostGuessed();
+}
+
+function getLongestStreak(){
+    var longest_streak = 1;
+    document.getElementById("Longest_Streak").innerHTML=longest_streak.toString();
+}
+
+function getRightGuesses(){
+    var right_guesses = 1;   //  TODO, read in value from API;
+    var longest_element = document.getElementById("Right_Guesses").innerHTML=right_guesses;
+}
+
+function getWrongGuesses(){
+    var wrong_guesses = 1;   //  TODO, read in value from API
+    document.getElementById("Wrong_Guesses").innerHTML=wrong_guesses;
+}
+
+function getRatio(){
+    var right_guesses = 1;   //  TODO, read in value from API
+    var wrong_guesses = 1;   //  TODO, read in value from API
+    var ratio=(right_guesses/(right_guesses+wrong_guesses))*100;
+    document.getElementById("Right_Wrong_Ratio").innerHTML=ratio;
+}
+
+function getMostGuessed(){
+    var most_guessed = 1;    //  TODO, read in value from API
+    document.getElementById("Most_Guessed").innerHTML = most_guessed;
 }
