@@ -246,8 +246,4 @@ switch ($action) {
         echo '"Bad Query!"';
         break;
 }
-
-if (random_int(0, 1)) {
-    sleep(1);
-}
 ?>
