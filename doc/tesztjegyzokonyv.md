@@ -12,7 +12,7 @@
 
 - Teszteléshez használt rendszer: Selenium IDE
 
-- Tesztelés módja:
+- Tesztelés módja: Szoftver használatával.
 
 - Tesztelt eset: Regisztráció e-mail használata nélkül.
 
@@ -36,7 +36,7 @@ Egyéb megjegyzés: A teszteléshez használt szoftver megfelelően szimulálta 
 
 - Teszteléshez használt rendszer: Selenium IDE
 
-- Tesztelés módja:
+- Tesztelés módja: Szoftver használatával.
 
 - Tesztelt eset: Regisztráció e-mail használatával.
 
@@ -60,7 +60,7 @@ Egyéb megjegyzés: A teszteléshez használt szoftver megfelelően szimulálta 
 
 - Teszteléshez használt rendszer: Selenium IDE
 
-- Tesztelés módja:
+- Tesztelés módja: Szoftver használatával.
 
 - Tesztelt eset: Reset gomb használata a felületet induló állapotba helyezi.
 
