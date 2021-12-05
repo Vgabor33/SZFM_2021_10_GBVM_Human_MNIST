@@ -73,3 +73,47 @@ Egyéb megjegyzés: A teszteléshez használt szoftver megfelelően szimulálta 
 Egyéb megjegyzés: A teszteléshez használt szoftver megfelelően szimulálta a szükséges lépéseket.
 
 ![Kép a regisztráció teszteléséről](/images/reset-button-teszt.png)
+
+### Statisztika gomb tesztelése Brave böngészőben
+
+- Tesztelő neve: Kóti Bence
+
+- Tesztelés ideje: 2021.12.05 19:15
+
+- Tesztelt rendszer: Ubuntu 20.04.3 LTS
+
+- Teszteléshez használt rendszer: Brave 1.32
+
+- Tesztelés módja: Manuális teszt.
+
+- Tesztelt eset: A Statisztika gomb megnyitja a Statisztika menüt.
+
+- Kapott eredmény: A Statisztika menü megjelent.
+
+- Várt eredmény: A Statisztika menü megjelenik.
+
+- Teszt konkluzió: A Statiszitka gomb megfelelően működik.
+
+Egyéb megjegyzés: Nincs
+
+### Statisztika menü adatait forntednek átadó JS függvény teszte
+
+- Tesztelő neve: Kóti Bence
+
+- Tesztelés ideje: 2021.12.05 19:18
+
+- Tesztelt rendszer: Ubuntu 20.04.3 LTS
+
+- Teszteléshez használt rendszer: Brave 1.32
+
+- Tesztelés módja: Manuális teszt.
+
+- Tesztelt eset: A Statisztika gomb megnyomásával a JavaScript függvény átadja az alap információkat a weboldalnak ami megjeleníti azokat.
+
+- Kapott eredmény: A HTML fileban megadott információk helyet a JavaScriptben megadott információk kerültek megjelenítésre a weboldalon.
+
+- Várt eredmény: A HTML fileban megadott információk helyet a JavaScriptben megadott információk kerülnek megjelenítésre a weboldalon.
+
+- Teszt konkluzió: A JavaScript függvény megfelelően működik.
+
+Egyéb megjegyzés: nincs
