@@ -90,3 +90,22 @@ Várt eredmény: A felhasználó minden adata megmarad az adatbázisban és az e
 Teszt konkluzió: Várt adatok esetén egy meglévő felhasználó email címet tud rendelni a 'fiókjához'
 
 Egyéb megjegyzés: nincs
+
+### 3. Megfelelő válasz tesztelése az api-tól:
+
+### a) register action sikeres visszatérésének vizsgálata
+Tesztelő neve: Veress Gábor
+
+Tesztelés ideje: 2021.12.05 23:08
+
+Tesztelt rendszer: request_handler.php
+
+Teszteléshez használt rendszer: Windows 10 Pro 20H2
+
+Kapott eredmény: A register action hatására a backend egy szerver tokent generált a felhasználó számára majd vissza is küldte azt 200-as kóddal
+
+Várt eredmény: A register action hatására a backend egy szerver tokent generál a felhasználó számára majd vissza is küldi azt 200-as kóddal
+
+Teszt konkluzió: Sikeresen regisztráció esetén a backend visszatér egy jól legenerált tokennel
+
+Egyéb megjegyzés: nincs
