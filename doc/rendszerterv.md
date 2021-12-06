@@ -266,6 +266,10 @@ Tesztelt rendszer:
 ___
 Teszteléshez használt rendszer:
 ___
+Tesztelés módja:
+___
+Tesztelt eset:
+___
 Kapott eredmény:
 ___
 Várt eredmény: 

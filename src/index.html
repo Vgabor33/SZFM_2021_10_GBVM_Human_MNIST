@@ -25,7 +25,7 @@
         <input type="number" id="user_input" placeholder="Tap to begin!" oninput="onNumberInput(this)" />
     </div>
     <div class="menubutton-wrapper">
-        <button class="menubutton" onclick="onMenuButtonClicked(this, 'statistics')">Statistics
+        <button class="menubutton statistics-img" onclick="onMenuButtonClicked(this, 'statistics')">Statistics
             button</button>
         <button class="menubutton hamburger" onclick="onMenuButtonClicked(this, 'menu')">menu button</button>
     </div>
@@ -38,11 +38,17 @@
     </div>
     <div class="menu-wrapper hidden" id="statistics">
         <div class="menu slide-from-left">
-            Longest guessing streak:0<br>
-            Right guesses so far:0<br>
-            Wrong guesses so far:0<br>
-            Right guess percentage:0%<br>
-            Most word guessed right:null<br>
+            <div class="stat-headname">Statistics</div>
+            <div class="stat-name">Longest guessing streak:</div>
+            <div class="stat-results"><a id="Longest_Streak">0</a></div>
+            <div class="stat-name">Right guesses so far: </div>
+            <div class="stat-results"> <a id="Right_Guesses">0</a></div>
+            <div class="stat-name">Wrong guesses so far:</div>
+            <div class="stat-results"> <a id="Wrong_Guesses">0</a></div>
+            <div class="stat-name">Right guess percentage:</div>
+            <div class="stat-results"> <a id="Right_Wrong_Ratio">0</a>%</div>
+            <div class="stat-name">Most word guessed right: </div>
+            <div class="stat-results"> <a id="Most_Guessed">0</a></div>
         </div>
         <div class="flex-fill" onclick="onMenuExited(this.parentElement)"></div>
     </div>
@@ -78,7 +84,7 @@
             <input id="email" type="email" placeholder="anna@example.com" />
             <button id="submit_email" onclick="onSubmitEmailClicked(this)">Submit</button>
             <div class="flex-fill"></div>
-            <button onclick="onResetButtonClicked(this)">Reset</button>
+            <button id="reset" onclick="onResetButtonClicked(this)"><span>Reset </span></button>
             <div></div>
         </div>
         <div class="flex-fill" onclick="onMenuExited(this.parentElement)"></div>

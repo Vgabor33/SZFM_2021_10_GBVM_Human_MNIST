@@ -53,8 +53,33 @@ body {
     gap: 0.8rem;
 }
 
+.stat-headname {
+    border: 3px solid #d3d3d3;
+    border-radius: 4px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: #d3d3d3;
+}
+
+.stat-name {
+    color: #3498db;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.stat-results {
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-left: 1.4rem;
+    padding-bottom: 1.4rem;
+}
+
 
 button {
+    border-radius: 4px;
     font-size: 1.4rem;
     background-color: rgb(95, 159, 233);
     border-color: rgb(196, 196, 196);
@@ -62,6 +87,66 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+#submit_email, #submit_data {
+    position: relative;
+    background-color: rgb(95, 159, 233);
+    border: none;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#submit_email:after, #submit_data:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+#submit_email:active:after,  #submit_data:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+
+
+#reset {
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#reset span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+#reset span:after {
+    content: '\21BB';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+#reset:hover span {
+    padding-right: 25px;
+}
+  
+#reset:hover span:after {
+    opacity: 1;
+    right: 0;
 }
 
 select, input {
@@ -124,6 +209,10 @@ input:invalid {
     width: 4rem;
     height: 4rem;
     box-shadow: var(--default-shadow);
+}
+
+.statistics-img {
+    background-image: url("img/stat-img.png");
 }
 
 .hamburger {
@@ -489,19 +578,9 @@ input, select {
 
 
 @media only screen and (max-width: 600px) {
-
-    .streak-counter {
-        
-    }
-
-    .menubutton-wrapper {
-
-    }
-
     .bigimg-wrapper {
         width: 80%;
     }
-    
 
 }
 

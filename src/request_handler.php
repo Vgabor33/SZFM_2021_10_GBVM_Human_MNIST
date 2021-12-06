@@ -39,7 +39,7 @@ class DBHandler
     {
         $this->servername="localhost";
         $this->db_username="root";
-        $this->db_password="root";
+        $this->db_password="";
         $this->dbname="human_mnist";
     }
 
@@ -67,7 +67,7 @@ class DBHandler
         $conn = new mysqli($dbconn->get_serverName(), $dbconn->get_userName(), $dbconn->get_password(), $dbconn->get_dbName());
         if ($conn->connect_error) {
             http_response_code(500);
-            echo "Error: ". $conn->connect_error;
+            echo '"Error: '. $conn->connect_error . '"';
             die("Connection failed: " . $conn->connect_error);
         }
         return $conn;
@@ -82,7 +82,7 @@ class DBHandler
         if (!($conn->query($sql)) === TRUE) 
         {
             http_response_code(500);
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo '"Error: ' . $sql . '<br>' . $conn->error . '"';
         }
         $conn->close();
     }
@@ -94,36 +94,67 @@ class DBHandler
         if (!($conn->query($sql)) === TRUE) 
         {
             http_response_code(500);
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo '"Error: ' . $sql . '<br>' . $conn->error . '"';
         }
         $conn->close();
     }
 
-    public static function getUserDatabyToken($serverToken,$clientToken)
+    public static function getUserDataByToken($serverToken,$clientToken)
     {
-        $sql= "SELECT * FROM human_mnist.users WHERE serverToken = '".$serverToken."' AND clientToken = '".$clientToken."' ";
+        $sql= "SELECT region, age, education, streak, email FROM human_mnist.users WHERE serverToken = '".$serverToken."' AND clientToken = '".$clientToken."' ";
         $conn = DBHandler::newConnection();
         $result = $conn->query($sql);
         if ($result->num_rows > 0) 
         {
             while($row = $result->fetch_assoc()) 
             {
-                echo "{
-                    "."age".": ".$row['age']." ,
-                    "."region".": ".$row['region'].",
-                    "."education".": ".$row['education'].",
-                    "."streak".": ".$row['streak'].",
-                    "."email".": ".$row['email']."
-                }";
+                echo json_encode($row);
             }
         } 
         else 
         {
             http_response_code(500);
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo '"Error: ' . $sql . '<br>' . $conn->error . '"';
         }
         $conn->close();
     }
+
+    public static function getRandomTest()
+    {
+        $sql= "SELECT * FROM human_mnist.tests ORDER BY RAND() LIMIT 1";
+        $conn = DBHandler::newConnection();
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) 
+        {
+            $row = $result->fetch_assoc();
+            return $row;
+        } 
+        else 
+        {
+            http_response_code(500);
+            echo '"Error: ' . $sql . '<br>' . $conn->error . '"';
+        }
+        $conn->close();
+    }
+
+    public static function insertResult($serverToken, $clientToken, $response)
+    {
+        $sql = "INSERT INTO human_mnist.testResults (serverToken, clientToken, testId, response, timeTaken) 
+                VALUES ( ".$serverToken.", "
+                          .$clientToken.", "
+                          .$response['test-id'].", "
+                          .$response['test-response']
+                          .", current_timestamp 
+                       )";
+        $conn = DBHandler::newConnection();
+        if (!($conn->query($sql)) === TRUE) 
+        {
+            http_response_code(500);
+            echo '"Error: ' . $sql . '<br>' . $conn->error . '"';
+        }
+        $conn->close();
+    }
+
 
 }
 
@@ -154,7 +185,7 @@ switch ($action) {
     case 'get-userdata':
         if (checkCookies()) 
         {
-            DBHandler::getUserDatabyToken($_COOKIE['server-token'],$_COOKIE['client-token']);
+            DBHandler::getUserDataByToken($_COOKIE['server-token'],$_COOKIE['client-token']);
         } 
         else 
         {
@@ -168,9 +199,6 @@ switch ($action) {
             if (isset($data['email']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL)) 
             {
                 DBHandler::setEmail($_COOKIE['server-token'],$_COOKIE['client-token'],$data['email']);
-                $data2 = json_decode(file_get_contents($dataFilename), true);
-                $data2['email'] = $data['email'];
-                file_put_contents($dataFilename, json_encode($data2));
             } 
             else 
             {
@@ -186,45 +214,27 @@ switch ($action) {
     case 'respond':
         if (checkCookies()) {
             $data = json_decode(file_get_contents('php://input'), true);
-            $data2 = json_decode(file_get_contents($dataFilename), true);
-            $first_random = random_int(0,9);
-            $second_random = random_int(0,9);
-            $third_random = random_int(0,9);
 
-            //Hármasával csináljuk a randomizálót, mivel minél több különböző számjegyet akarunk, így hármasával bebiztosítjuk, hogy nagy eséllyel különböző számjegyeket adjunk vissza
-            $random_digits = [
-                            $first_random,
-                            random_int(0,abs($first_random-1)),
-                            random_int($first_random,9),
-                            $second_random,
-                            random_int(0,abs($second_random-1)),
-                            random_int($second_random,9),
-                            $third_random,
-                            random_int(0,abs($third_random-1)),
-                            random_int($third_random,9),
-                            random_int(0,9)
-                        ];
+            if(isset($data['test-id']) && isset($data['test-response'])) {
+                DBHandler::insertResult($_COOKIE['server-token'], $_COOKIE['client-token'], $data);
 
-            $urls = [
-                "img/".$random_digits[0]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[1]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[2]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[3]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[4]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[5]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[6]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[7]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[8]."_".random_int(1,99999).".jpg",
-                "img/".$random_digits[9]."_".random_int(1,99999).".jpg",
-            ];
-            echo json_encode(array(
-                'test-token' => ($data['test-token'] ?? 0) + 1,
-                'streak' => ($data2['streak'] ?? 0) + 1,
-                'test' => $urls[random_int(0, count($urls) - 1)]
-            ));
-            $data2['streak']++;
-            file_put_contents($dataFilename, json_encode($data2));
-            return; // hack to not get the artificial api delay
+                $randomTest = DBHandler::getRandomTest();
+
+                echo json_encode(array(
+                    'test-id' => $randomTest['testId'],
+                    'streak' => 0,
+                    'test' => $randomTest['url']
+                ));
+            }else{
+                $randomTest = DBHandler::getRandomTest();
+
+                echo json_encode(array(
+                    'test-id' => $randomTest['testId'],
+                    'streak' => 0,
+                    'test' => $randomTest['url']
+                ));
+            }
+            return;
         } 
         else 
         {
@@ -235,9 +245,5 @@ switch ($action) {
         http_response_code(400);
         echo '"Bad Query!"';
         break;
-}
-
-if (random_int(0, 1)) {
-    sleep(1);
 }
 ?>
