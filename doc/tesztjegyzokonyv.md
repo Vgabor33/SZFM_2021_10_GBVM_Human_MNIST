@@ -71,3 +71,22 @@ Várt eredmény: A felhasználó felvételre kerül az adatbázisba, az email me
 Teszt konkluzió: A felhasználó email cím megadása nélkül tud regisztrálni
 
 Egyéb megjegyzés: nincs
+
+### 2. Meglévő felhasználóhoz email cím felvétele az adatbázisba:
+
+### a)
+Tesztelő neve: Veress Gábor
+
+Tesztelés ideje: 2021.12.05 23:04
+
+Tesztelt rendszer: request_handler.php
+
+Teszteléshez használt rendszer: Windows 10 Pro 20H2
+
+Kapott eredmény: A felhasználó minden adata megmaradt az adatbázisban és az email mező helyesen kitöltődött
+
+Várt eredmény: A felhasználó minden adata megmarad az adatbázisban és az email mező helyesen kitöltődik
+
+Teszt konkluzió: Várt adatok esetén egy meglévő felhasználó email címet tud rendelni a 'fiókjához'
+
+Egyéb megjegyzés: nincs
