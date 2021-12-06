@@ -263,3 +263,59 @@ Egyéb megjegyzés: nincs
     Teszt konkluzió: Regisztrált felhasználó email regisztrálása nem okoz hibát, és megfelelően működik
 
     Egyéb megjegyzés: nincs
+
+## Integrációs Teszteek
+
+### Regisztráció tesztelése
+
+ * Tesztelő neve: Nagy Viktor Márk
+
+ * Tesztelés ideje: 2021.12.06 16:03
+
+ * Tesztelt rendszer: backend, frontend
+
+ * Teszteléshez használt rendszer: Windows 10, MySQL 7, PHP 8.1, Chromium
+
+ * Kapott eredmény: A regisztráció elküldése után az alkalmazás engedélyezi a tesztkitöltést.
+
+ * Várt eredmény: A regisztráció elküldése után az alkalmazás engedélyezi a tesztkitöltést.
+
+ * Teszt konkluzió: felhasználó Regisztrálása nem okoz hibát és megfelelően működik
+
+ * Egyéb megjegyzés: nincs
+
+### E-mail megadásának tesztelése
+
+ * Tesztelő neve: Nagy Viktor Márk
+
+ * Tesztelés ideje: 2021.12.06 16:32
+
+ * Tesztelt rendszer: backend, frontend
+
+ * Teszteléshez használt rendszer: Windows 10, MySQL 7, PHP 8.1, Chromium
+
+ * Kapott eredmény: Az e-mailt megfelelően eltárolja az adatbázis.
+
+ * Várt eredmény: Az e-mailt megfelelően eltárolja az adatbázis.
+
+ * Teszt konkluzió: felhasználó Regisztrálása nem okoz hibát és megfelelően működik
+
+ * Egyéb megjegyzés: nincs
+
+### Tesztkitöltés tesztelése
+
+ * Tesztelő neve: Nagy Viktor Márk
+
+ * Tesztelés ideje: 2021.12.06 16:16
+
+ * Tesztelt rendszer: backend, frontend
+
+ * Teszteléshez használt rendszer: Windows 10, MySQL 7, PHP 8.1, Chromium
+
+ * Kapott eredmény: A teszt kitöltésekor a szerver feldolgozta az adatot és visszaküldte a következő tesztet, amit a frontend megfelelően megjelenített
+
+ * Várt eredmény: A teszt kitöltésekor a szerver feldolgozza az adatot és visszaküldi a következő tesztet, amit a frontend megfelelően megjelenít
+
+ * Teszt konkluzió: A tesztkitöltés nem okoz hibát és megfelelően működik
+
+ * Egyéb megjegyzés: nincs
