@@ -126,3 +126,21 @@ Várt eredmény: A get-userdata hatására a backend vissza is küldi a felhaszn
 Teszt konkluzió: Regisztrált felhasználó adatai lekérdezhetőek és helyes formátumban kapjuk vissza őket
 
 Egyéb megjegyzés: nincs
+
+
+### c) set-email action sikeres visszatérésének vizsgálata
+Tesztelő neve: Veress Gábor
+
+Tesztelés ideje: 2021.12.05 23:13
+
+Tesztelt rendszer: request_handler.php
+
+Teszteléshez használt rendszer: Windows 10 Pro 20H2
+
+Kapott eredmény: A set-email hatására a backend felvette a felhaszáló e-mail címét az adatbázisba majd 200-as kóddal tért vissza
+
+Várt eredmény: A set-email hatására a backend felveszi a felhaszáló e-mail címét az adatbázisba majd 200-as kóddal tér vissza
+
+Teszt konkluzió: Regisztrált felhasználó email regisztrálása nem okoz hibát, és megfelelően működik
+
+Egyéb megjegyzés: nincs
