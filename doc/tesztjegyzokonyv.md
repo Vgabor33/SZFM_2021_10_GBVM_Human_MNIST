@@ -54,3 +54,20 @@ Várt eredmény: Várt adatok esetén az adatbázisban az region mező megfelel�
 Teszt konkluzió:  A region mező az adatbázisban a felhasználó által megadott adatoknak megfelelően állítódik be
 
 Egyéb megjegyzés: nincs
+
+### d) Az email mező üresen marad az adatbázisban
+Tesztelő neve: Veress Gábor
+
+Tesztelés ideje: 2021.12.05 22:58
+
+Tesztelt rendszer: request_handler.php
+
+Teszteléshez használt rendszer: Windows 10 Pro 20H2
+
+Kapott eredmény: A felhasználó felvételre került az adatbázisba, az email mező pedig üresen maradt
+
+Várt eredmény: A felhasználó felvételre kerül az adatbázisba, az email mező pedig üresen marad
+
+Teszt konkluzió: A felhasználó email cím megadása nélkül tud regisztrálni
+
+Egyéb megjegyzés: nincs
