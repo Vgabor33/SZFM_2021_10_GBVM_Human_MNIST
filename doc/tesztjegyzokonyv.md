@@ -109,3 +109,20 @@ Várt eredmény: A register action hatására a backend egy szerver tokent gener
 Teszt konkluzió: Sikeresen regisztráció esetén a backend visszatér egy jól legenerált tokennel
 
 Egyéb megjegyzés: nincs
+
+### b) get-userdata action sikeres visszatérésének vizsgálata
+Tesztelő neve: Veress Gábor
+
+Tesztelés ideje: 2021.12.05 23:11
+
+Tesztelt rendszer: request_handler.php
+
+Teszteléshez használt rendszer: Windows 10 Pro 20H2
+
+Kapott eredmény: A get-userdata hatására a backend vissza is küldte a felhasználó adatait, megfelelő json formátumban, 200-as kóddal
+
+Várt eredmény: A get-userdata hatására a backend vissza is küldi a felhasználó adatait, megfelelő json formátumban, 200-as kóddal
+
+Teszt konkluzió: Regisztrált felhasználó adatai lekérdezhetőek és helyes formátumban kapjuk vissza őket
+
+Egyéb megjegyzés: nincs
